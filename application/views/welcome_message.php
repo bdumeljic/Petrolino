@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<title>Welcome to Petrolino <small>Powered by CodeIgniter</small></title>
 
 	<style type="text/css">
 
