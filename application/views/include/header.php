@@ -1,6 +1,3 @@
-<?php
-$this->load->helper('url');
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,3 +20,15 @@ $this->load->helper('url');
 
 </head>
 <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<a class="brand" href="#">Petrolino</a>
+			<ul class="nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Link</a></li>
+				<li><a href="#">Help</a></li>
+			</ul>
+			 <button type="submit" class="btn pull-right">Compile Arduino code</button>
+		</div>
+	</div>
+	<div class="container">
