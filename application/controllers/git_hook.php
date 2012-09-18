@@ -19,7 +19,8 @@ class Git_hook extends CI_Controller {
 	 */
 	public function index()
 	{
-		echo exec("cd /var/www/petrolino && git pull", $output);
+		exec("/bin/bash");
+		exec("cd /var/www/petrolino && git pull", $output);
 		print_r($output);
 		echo "<br />Enough?";
 	}
