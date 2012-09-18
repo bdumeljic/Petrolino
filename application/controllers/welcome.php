@@ -22,6 +22,12 @@ class Welcome extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->view('welcome_message');
 	}
+	
+	public function draw()
+	{
+		$this->load->helper('url');
+		$this->load->view('drawing_interface');
+	}
 }
 
 /* End of file welcome.php */
