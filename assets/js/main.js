@@ -15,7 +15,7 @@ var Main = {
 	
 	//
 	init: function() {
-		this.canvas: $("canvas#board"),
+		this.canvas = $("canvas#board");
 	},
 	
 
