@@ -29,6 +29,7 @@
 				<ul class="nav">
 					<li><a href="<?=site_url("welcome/");?>">Home</a></li>
 					<li><a href="<?=site_url("welcome/draw/");?>">Draw</a></li>
+					<li><a href="#">Upload</a></li>
 					<li><a href="#">Help</a></li>
 				</ul>
 				 <button type="submit" class="btn btn-primary pull-right">Compile Arduino code</button>

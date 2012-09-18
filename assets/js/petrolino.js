@@ -47,13 +47,15 @@ function createTransition() {
 			// alert(tmp.fillStyle);
 			// tmp.fillStyle = "#f00";
 			// var tmp = mousePos(e);
-			alert(e.pageX +', '+ e.pageY);
+			// alert(e.pageX +', '+ e.pageY);
 			// alert(dump(tmp));
+			/*
 			var myCanvas = document.getElementById("board");
 			var myContext = myCanvas.getContext("2d");
 			myContext.moveTo(0,0);
 			myContext.quadraticCurveTo(0,100,100,250);
 			myContext.stroke();
+			*/
 		},
 	});
 }
