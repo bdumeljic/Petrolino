@@ -1,6 +1,6 @@
 <?include_once('include/header.php');?>
 
-<div id="container">
+<div id="container" class="container">
 	<h1>Welcome to Petrolino!</h1>
 
 	<div id="body">
@@ -16,8 +16,5 @@
 		<p>Brought to you by: Her, Him, this guy and Me.</p>
 	</div>
 
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
 </div>
-
-</body>
-</html>
+<?include_once('include/footer.php');?>
