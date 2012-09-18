@@ -4,3 +4,7 @@ body {
 canvas#board {
 	background-color: #e8e8e8;
 }
+.active {
+	background-color: #ff0;
+	border-color: #f00;
+}
