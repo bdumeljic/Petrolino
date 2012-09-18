@@ -18,6 +18,7 @@
 	<script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
 	<script src="<?= base_url('assets/js/jcanvas.min.js') ?>"></script>
 	<script src="<?= base_url('assets/js/petrolino.js') ?>"></script>
+	<script src="<?= base_url('assets/js/main.js') ?>"></script>
 	
 </head>
 <body>
