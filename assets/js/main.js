@@ -52,7 +52,7 @@ var Place = {
 			x: 180, y: 200,
 			radius: 50,
 			
-			name: "pl" + Place.n;
+			name: "pl" + Place.n,
 			
 			layer: true,
 			draggable: true,
