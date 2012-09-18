@@ -39,7 +39,7 @@ function place() {
 	});
 }
 
-var Place {
+var Place = {
 	n: 0,
 	
 	newPlace: function() {
