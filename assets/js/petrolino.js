@@ -7,22 +7,6 @@ function dump(a) {
 	return (JSON.stringify(acc));
 }
 
-function mousePos(e) {
-	var x;
-	var y;
-	if (e.pageX || e.pageY) { 
-	  x = e.pageX;
-	  y = e.pageY;
-	}
-	else { 
-	  x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft; 
-	  y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop; 
-	} 
-	// x -= gCanvasElement.offsetLeft;
-	// y -= gCanvasElement.offsetTop;
-	var out = [x,y];
-	return out;
-}
 function createTransition() {
 
 	$("canvas#board").drawRect({
@@ -42,20 +26,7 @@ function createTransition() {
 			$(this).css({cursor: "default"});  
 		},
 		click: function(e) {
-			$(this).addClass("active");  
-			// var myContext = $(this).parent();
-			// alert(tmp.fillStyle);
-			// tmp.fillStyle = "#f00";
-			// var tmp = mousePos(e);
-			// alert(e.pageX +', '+ e.pageY);
-			// alert(dump(tmp));
-			/*
-			var myCanvas = document.getElementById("board");
-			var myContext = myCanvas.getContext("2d");
-			myContext.moveTo(0,0);
-			myContext.quadraticCurveTo(0,100,100,250);
-			myContext.stroke();
-			*/
+			
 		},
 	});
 }
