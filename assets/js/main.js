@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 // Main class
 var Main = {
-	canvas: $("canvas#board"),
+	
 	
 	places: [],
 	
@@ -15,7 +15,7 @@ var Main = {
 	
 	//
 	init: function() {
-		
+		this.canvas: $("canvas#board"),
 	},
 	
 
