@@ -8,7 +8,7 @@ class Git_hook extends CI_Controller {
 		//exec("cd /var/www/petrolino && git pull", $output);
 		
 		//$output = `cd /var/www/petrolino && git pull`;
-		echo(nl2br(shell_exec('git pull 2>&1'));
+		echo nl2br(shell_exec('git pull 2>&1'));
 		
 		/*$output = `cd /var/www/`;
 		print_r($output);
