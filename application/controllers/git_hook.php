@@ -2,28 +2,13 @@
 
 class Git_hook extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
 	public function index()
 	{
-		exec("/bin/bash");
+		//exec("/bin/bash");
 		//exec("cd /var/www/petrolino && git pull", $output);
 		
-		$output = `cd /var/www/petrolino && git pull`;
-		print_r($output);
+		//$output = `cd /var/www/petrolino && git pull`;
+		echo(nl2br(shell_exec('git pull 2>&1'));
 		
 		/*$output = `cd /var/www/`;
 		print_r($output);
