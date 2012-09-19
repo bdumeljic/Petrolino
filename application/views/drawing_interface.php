@@ -28,9 +28,7 @@
 			<textarea style="width:94%;" rows="7"></textarea>
 			<button type="submit" class="btn btn-block">Download PNML file</button><br>
 
-            <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a><br>
-
-            <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal" id="codeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h3 id="myModalLabel">C / Arduino Code</h3>
@@ -39,11 +37,13 @@
                     <p>One fine body…</p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                    <div class="alert alert-info">
+                        Copy the code above to your Arduino.
+                    </div>
                 </div>
             </div>
 
-			<button type="submit" class="btn btn-block btn-primary">Convert to Arduino code</button>
+			<button type="submit" class="btn btn-block btn-primary" href="#codeModal" data-toggle="modal">Convert to Arduino code</button>
 					
 		</div>
 		
