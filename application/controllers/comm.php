@@ -18,3 +18,5 @@ class Comm extends CI_Controller {
 	}
 	
 }
+
+?>
