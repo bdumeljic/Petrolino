@@ -1,11 +1,3 @@
-function dump(a) {
-	var acc = []
-	$.each(a, function(index, value) {
-	    acc.push(index + ': ' + value);
-	});
-	alert(JSON.stringify(acc));
-}
-
 function place () {
 
 	this.name = "Place name";
