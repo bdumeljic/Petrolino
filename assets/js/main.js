@@ -11,7 +11,7 @@ var Main = {
 		
 		$.ajax({
 			type: "POST",
-			url: "/comm/convert",
+			url: "index.php/comm/convert",
 			data: { pnml: pnml },
 			async: false
 		}).done(function(msg) {

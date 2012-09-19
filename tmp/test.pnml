@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pnml>
+  	<net type="http://www.yasper.org/specs/epnml-1.1" id="do32">
+	    <description>
+	      <text>int face1 = 7;
+	int face2 = 6;
+	int face3 = 5;
+	int face4 = 4;
+	int statusLED =3;
+	int button = 10;
+	int faceDelay = 200;
+	int n=0;
+	</text>
+	    </description>
+	    <transition id="em0">
+	      <name>
+	        <text>Bootstrap</text>
+	      </name>
+	      <description>
+	        <text>pinMode(face1,OUTPUT);
+	pinMode(face2,OUTPUT);
+	pinMode(face3,OUTPUT);
+	pinMode(face4,OUTPUT);
+	pinMode(statusLED,OUTPUT);
+	pinMode(button,INPUT);
+	Serial.begin(115200);</text>
+	      </description>
+	      <graphics>
+	        <position x="66" y="198" />
+	        <dimension x="32" y="32" />
+	      </graphics>
+	    </transition>
+<transition id="tr2">
+	<name>
+		<text>Transition 0</text>
+	</name>
+	<description>
+		<text>faceDelay</text>
+	</description>
+	<graphics>
+		<position x="698" y="304" />
+		<dimension x="40" y="40" />
+	</graphics>
+</transition>
+<place id="pl0">
+	<name>
+		<text>Place 0</text>
+	</name>
+	<description>
+		<text></text>
+	</description>
+	<graphics>
+		<position x="508" y="279" />
+		<dimension x="40" y="40" />
+	</graphics>
+</place>
+<place id="pl1">
+	<name>
+		<text>Place 1</text>
+	</name>
+	<description>
+		<text></text>
+	</description>
+	<graphics>
+		<position x="856" y="271" />
+		<dimension x="40" y="40" />
+	</graphics>
+</place>
+<arc id="a0" source="em0" target="pl0">
+	<name>
+		<text>Action 0</text>
+	</name>
+	<description>
+		<text>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</text>
+	</description>
+</arc>
+<arc id="a1" source="pl0" target="tr2">
+	<name>
+		<text>Action 1</text>
+	</name>
+	<description>
+		<text>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</text>
+	</description>
+</arc>
+<arc id="a2" source="tr2" target="pl1">
+	<name>
+		<text>Action 2</text>
+	</name>
+	<description>
+		<text>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</text>
+	</description>
+</arc>
+	</net>
+</pnml>
