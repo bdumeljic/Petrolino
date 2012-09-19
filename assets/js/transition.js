@@ -11,7 +11,7 @@ function Transition(x, y) {
 		}
 		
 		// Generate unique id
-		this.id = "tr" + Drawboard.places.length;
+		this.id = "tr" + Drawboard.transitions.length;
 		
 		
 		// Build ToolTip
@@ -41,6 +41,7 @@ function Transition(x, y) {
 	}
 	
 	this.toggleToolTip = function() {
+		Drawboard.hideToolTips();
 		this.toolTip.css({top: this.getY() - this.toolTip.height()/ 2 , left: this.getX() + 25});
 		this.toolTip.toggle();
 	}
@@ -54,10 +55,13 @@ function Transition(x, y) {
 		Drawboard.canvas.drawRect({
 			name: id,
 		
-			strokeStyle: "#000",
-			fillStyle: "#666",
-			strokeWidth: 1,
-			cornerRadius: 5,
+			strokeStyle: "#333",
+			fillStyle: "#999",
+			strokeWidth: 0,
+			cornerRadius: 6,
+			
+			shadowColor: "rgba(0, 0, 0, 0.2)",
+  			shadowBlur: 10,
 		
 			x: x, 
 			y: y,

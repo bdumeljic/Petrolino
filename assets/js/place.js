@@ -43,6 +43,7 @@ function Place(x, y) {
 	}
 	
 	this.toggleToolTip = function() {
+		Drawboard.hideToolTips();
 		this.toolTip.css({top: this.getY() - this.toolTip.height()/ 2 , left: this.getX() + 25});
 		this.toolTip.toggle();
 	}

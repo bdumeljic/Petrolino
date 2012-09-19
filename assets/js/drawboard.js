@@ -42,6 +42,12 @@ var Drawboard = {
 		console.log("Drawboard initialized");
 	},
 	
+	hideToolTips: function() {
+		$.each(this.places.concat(this.transitions), function() {
+			this.hideToolTip();
+		});
+	},
+	
 	_updateLines: function() {
 		if(Drawboard.isDrawing == true) {
 			
