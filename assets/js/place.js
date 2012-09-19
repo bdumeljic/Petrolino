@@ -56,14 +56,18 @@ function Place(x, y) {
 		Drawboard.canvas.drawArc({
 			name: id,
 		
-			strokeStyle: "#000",
-			fillStyle: "#c33",
-			strokeWidth: 1,
-			cornerRadius: 5,
+			strokeStyle: "#111",
+			fillStyle: "#c00",
+			strokeWidth: 3,
+			
+			shadowColor: "rgba(0, 0, 0, .5)",
+			shadowX: 0,
+			shadowY: 0,
+  			shadowBlur: 15,
 		
 			x: x, 
 			y: y,
-			radius:20,	
+			radius:15,	
 		
 			layer: true,
 			draggable: true,
@@ -110,7 +114,7 @@ function Place(x, y) {
 		});
 		
 		Drawboard.canvas.drawArc({
-			fillStyle: "#f00",
+			fillStyle: "#000",
 			x: x, y: y,
 			radius: 5,
 			name: id + '_centerPoint',

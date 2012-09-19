@@ -97,11 +97,20 @@ var Drawboard = {
 			var l = Drawboard.canvas.getLayer("dragLine");
 			
 			if(!l) {
-				Drawboard.canvas.drawLine({
+				Drawboard.canvas.drawBezier({
 					strokeStyle: "#000",
 					strokeWidth: 2,
+					
 					x1: sO.x, y1: sO.y,
+
+					cx1: sO.x + 50, 	 cy1: sO.y,
+					cx2: sO.mouseX - 50, cy2: sO.mouseY,
+
 					x2: sO.mouseX, y2: sO.mouseY,
+					
+					shadowColor: "rgba(0, 0, 0, 0.5)",
+  					shadowBlur: 12,
+					
 					layer: true,
 					bringToFront: true,
 					name: "dragLine",
@@ -109,8 +118,15 @@ var Drawboard = {
 			} else {
 				l.x1 = sO.x;
 				l.y1 = sO.y;
+				
+				l.cx1 = sO.x + 50; 	 
+				l.cy1 = sO.y;
+				l.cx2 = sO.mouseX - 50; 
+				l.cy2 = sO.mouseY;
+				
 				l.x2 = sO.mouseX;
 				l.y2 = sO.mouseY;
+				
 				l.bringToFront = true;
 				l.visible = true;
 			}

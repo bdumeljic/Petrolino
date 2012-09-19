@@ -47,19 +47,19 @@ function Transition(x, y) {
 		Drawboard.canvas.drawRect({
 			name: id,
 		
-			strokeStyle: "#333",
-			fillStyle: "#999",
-			strokeWidth: 0,
+			strokeStyle: "#111",
+			fillStyle: "#204a87",
+			strokeWidth: 3,
 			cornerRadius: 6,
 			
-			shadowColor: "rgba(0, 0, 0, 0.2)",
-  			shadowBlur: 10,
+			shadowColor: "rgba(0, 0, 0, 0.5)",
+  			shadowBlur: 12,
 		
 			x: x, 
 			y: y,
 
-			width: 40,
-			height: 40,	
+			width: 30,
+			height: 30,	
 		
 			layer: true,
 			draggable: true,
@@ -112,7 +112,7 @@ function Transition(x, y) {
 		});
 		
 		Drawboard.canvas.drawArc({
-			fillStyle: "#f00",
+			fillStyle: "#000",
 			x: x, y: y,
 			radius: 5,
 			name: id + '_centerPoint',

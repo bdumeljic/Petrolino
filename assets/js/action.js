@@ -24,13 +24,20 @@ function Action (source, target) {
 		var s = delegate.source.actor;
 		var t = delegate.target.actor;
 		
-		Drawboard.canvas.drawLine({
+		Drawboard.canvas.drawBezier({
 			strokeStyle: "#000",
 			strokeWidth: 2,
+			
 			x1: s.x, y1: s.y,
+			cx1: s.x + 50, cy1: s.y,
+			cx2: t.x - 50, cy2: t.y,
 			x2: t.x, y2: t.y,
+			
+			shadowColor: "rgba(0, 0, 0, 0.5)",
+  			shadowBlur: 12,
+			
 			layer: true,
-			bringToFront: true,
+			bringToBack: true,
 			name: "line" + id,
 
             mouseover: function(l) {
@@ -64,6 +71,12 @@ function Action (source, target) {
 		// console.log(l);
 		l.x1 = s.x;
 		l.y1 = s.y;
+		
+		l.cx1 = s.x + 50; 	 
+		l.cy1 = s.y;
+		l.cx2 = t.x - 50; 
+		l.cy2 = t.y;
+				
 		l.x2 = t.x;
 		l.y2 = t.y;
 	}

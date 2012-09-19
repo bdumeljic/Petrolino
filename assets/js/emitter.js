@@ -47,13 +47,13 @@ function Emitter(x, y) {
 		Drawboard.canvas.drawRect({
 			name: id,
 		
-			strokeStyle: "#333",
-			fillStyle: "#3E8C84",
-			strokeWidth: 0,
+			strokeStyle: "#111",
+			fillStyle: "#73d216",
+			strokeWidth: 3,
 			cornerRadius: 6,
 			
-			shadowColor: "rgba(0, 0, 0, 0.2)",
-  			shadowBlur: 10,
+			shadowColor: "rgba(0, 0, 0, 0.5)",
+  			shadowBlur: 15,
 		
 			x: x, 
 			y: y,
@@ -113,9 +113,9 @@ function Emitter(x, y) {
 		});
 		
 		Drawboard.canvas.drawArc({
-			fillStyle: "#f00",
+			fillStyle: "#000",
 			x: x, y: y,
-			radius: 10,
+			radius: 5,
 			name: id + '_centerPoint',
 			
 			layer: true,
