@@ -146,7 +146,7 @@ function Place(x, y) {
 		
 		res += '	<graphics>\n';
 		res += '		<position x="' + this.actor.x + '" y="' + this.actor.y + '" />\n';
-		res += '		<dimension x="' + this.actor.radius + '" y="' + this.actor.radius + '" />\n';
+		res += '		<dimension x="' + this.actor.radius * 2 + '" y="' + this.actor.radius * 2 + '" />\n';
 		res += '	</graphics>\n';
 		
 		res += '</place>\n';

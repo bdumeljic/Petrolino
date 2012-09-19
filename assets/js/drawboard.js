@@ -60,6 +60,12 @@ var Drawboard = {
 			res += this.toPNML();
 		});
 		
+		// Generate actions
+		$.each(this.actions, function() {
+			res += this.toPNML();
+		});
+		
+		// .. and closing tags.
 		res += '	</net>\n';
 		res += '</pnml>\n';
 		
@@ -110,24 +116,24 @@ var Drawboard = {
 	_stopDrawing: function() {
 		Drawboard.isDrawing = false;
 		if(Drawboard.startObject) {
-			var sourceObject = Drawboard.startObject.actor;
+			var sourceObject = Drawboard.startObject;
 			//check if target object is opposite
 			if(Drawboard.possibleTargetObject) {
 				if(Drawboard.startObject.type != Drawboard.possibleTargetObject.type) {
-					var targetObject = Drawboard.possibleTargetObject.actor;
+					var targetObject = Drawboard.possibleTargetObject;
 				}
 			}
 			
 			if(!targetObject) {
 				//add place when there is no hittest with a target
 				if(Drawboard.startObject.type == 'place') {
-					var tr = new Transition(sourceObject.mouseX,sourceObject.mouseY);
+					var tr = new Transition(sourceObject.actor.mouseX,sourceObject.actor.mouseY);
 					Drawboard.transitions.push(tr);
-					var targetObject = tr.actor;
+					var targetObject = tr;
 				} else {
-					var pl = new Place(sourceObject.mouseX,sourceObject.mouseY);
+					var pl = new Place(sourceObject.actor.mouseX,sourceObject.actor.mouseY);
 					Drawboard.places.push(pl);
-					var targetObject = pl.actor;
+					var targetObject = pl;
 				}
 			}
 			
