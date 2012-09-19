@@ -35,15 +35,20 @@ function Action (source, target) {
 
             mouseover: function(l) {
                 $(this).css({cursor: "pointer"});
+                Drawboard.possibleTargetObject = delegate;
             },
             mouseout: function(l) {
                 $(this).css({cursor: "default"});
+                Drawboard.possibleTargetObject = null;
             },
             mouseup: function(l) {
                 if(this.beingClicked) {
                     delegate.tooltip.update();
                     delegate.tooltip.toggleToolTip();
                 }
+            },
+            mousedown: function() {
+                this.beingClicked = true;
             },
             click: function(l) {
             }
