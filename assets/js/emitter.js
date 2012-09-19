@@ -115,7 +115,7 @@ function Emitter(x, y) {
 		Drawboard.canvas.drawArc({
 			fillStyle: "#f00",
 			x: x, y: y,
-			radius: 5,
+			radius: 10,
 			name: id + '_centerPoint',
 			
 			layer: true,
