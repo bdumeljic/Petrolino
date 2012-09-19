@@ -21,20 +21,3 @@ canvas#board {
 	position: relative;
 	width: 250px;
 }
-<<<<<<< HEAD
-.inspector_project_title {
-	font-size:20px;
-	margin-top:10px;
-}
-.inspector_intro_content{
-	vertical-align:middle;
-	margin-top:20px;
-	position:absolute;
-	height:100%;
-}
-
-.modal_body {
-    -webkit-overflow-scrolling: touch;
-}
-=======
->>>>>>> modal fix
