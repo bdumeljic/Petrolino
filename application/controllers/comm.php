@@ -14,7 +14,7 @@ class Comm extends CI_Controller {
 		
 		fclose($fh);
 		
-		echo nl2br(shell_exec("python " . BASEPATH . "/../assets/petripy/petripy.py " . $fileName . ' 2>&1'));	
+		echo shell_exec("python " . BASEPATH . "/../assets/petripy/petripy.py " . $fileName . ' 2>&1');	
 	}
 	
 }

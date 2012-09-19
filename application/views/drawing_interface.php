@@ -5,7 +5,7 @@
 			<h3 id="myModalLabel">C / Arduino Code</h3>
 		</div>
 		<div class="modal-body">
-			<p>One fine body…</p>
+			<textarea class="span5" rows="18"></textarea>
 		</div>
 		<div class="modal-footer">
 			<div class="alert alert-info">
@@ -34,21 +34,7 @@
 		<hr>
 		<p><small>Petrolino is a Web-based Graphical Editor meant to create, export and convert petri-nets. <a href="<?=site_url('/welcome/help/');?>">Learn more &gt;</a></small></p>
 	</div>
-	
-	<div class="modal hide" id="codeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h3 id="myModalLabel">C / Arduino Code</h3>
-                </div>
-                <div class="modal-body">
-                    <p>One fine body… that is not behaving properly ...</p>
-                </div>
-                <div class="modal-footer">
-                    <div class="alert alert-info" style="text-align: left;">
-                        <span id="tip"></span><strong>Tip!</strong> Copy the code above to your Arduino.</span>
-                    </div>
-                </div>
-            </div>
+
 	<canvas id="board" width="700" height="500"></canvas>
 	
 	

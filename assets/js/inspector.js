@@ -21,7 +21,7 @@ Inspector.events = {
 		});
 		
 		$("#convertbutton").click(function() {
-			$('#codeModal .modal-body').html(Main.convertToArduino());
+			$('#codeModal .modal-body textarea').html(Main.convertToArduino());
 		});	
 		
 		$("#createPlace").click( function() {
