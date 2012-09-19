@@ -71,8 +71,8 @@ function Tooltip(delegate) {
 			code = '';
 		}
 
-		title.html('<input id="toolTipTitle" value="' + title_txt + '" />');
-		content.html('<textarea rows="6" style="margin-right: 15px;" id="toolTipCode" placeholder="Click to edit">' + code + '</textarea>');
+		title.html('<input type="text" id="toolTipTitle" value="' + title_txt + '" />');
+		content.html('<textarea rows="6" class="code-area" style="margin-right: 15px;" id="toolTipCode" placeholder="Click to edit">' + code + '</textarea>');
 		content.after('<div class="popover-content"><button type="submit" class="btn btn-block btn-primary" id="tooltipAction">Save</button></div>');
 		
 		$('#tooltipAction').click(function(e) {
