@@ -17,18 +17,18 @@ function Transition(x, y) {
 	
 	this.draw = function(id, x, y) {
 		
-		Drawboard.canvas.drawRect({
+		var layer = Drawboard.canvas.drawRect({
 			name: name,
 		
 			strokeStyle: "#000",
 			fillStyle: "#666",
-			strokeWidth: 3,
+			strokeWidth: 1,
 			cornerRadius: 5,
 		
 			x: x, 
 			y: y,
-			width: 100,
-			height: 100,	
+			width: 50,
+			height: 50,	
 		
 			layer: true,
 			draggable: true,
@@ -36,9 +36,19 @@ function Transition(x, y) {
 		
 			mouseover: function(l) {
 				$(this).css({cursor: "pointer"});
+				var cP = Drawboard.canvas.getLayer(l.name + '_centerPoint');
+				cP.x = l.x;
+				cP.y = l.y;
+				cP.visible = true;
 			},
-			mouseout: function() {
-				$(this).css({cursor: "default"});  
+			mouseout: function(l) {
+				$(this).css({cursor: "default"});
+				if(!Drawboard.isDrawing) {
+					var cP = Drawboard.canvas.getLayer(l.name + '_centerPoint');
+					cP.x = l.x;
+					cP.y = l.y;
+					cP.visible = false; 
+				}
 			},
 			mousedown: function() {
 				console.log("Mouse down");
@@ -60,6 +70,7 @@ function Transition(x, y) {
 				console.log("Drag");
 			}
 		});
+		
 		Drawboard.canvas.drawArc({
 			fillStyle: "#f00",
 			x: x, y: y,
@@ -72,12 +83,14 @@ function Transition(x, y) {
 				console.log("start drawing line");
 				Drawboard.isDrawing = true;
 				Drawboard.startObject = l;
+				l.visible = true;
 			},
 			
 			mouseup: function(l) {
-				console.log("stop drawing line");
-				Drawboard.isDrawing = false;
-				Drawboard.startObject = null;
+				// console.log("stop drawing line");
+				// Drawboard.isDrawing = false;
+				// Drawboard.startObject = null;
+				// l.visible = false;
 			},
 		});
 		

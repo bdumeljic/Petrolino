@@ -20,6 +20,7 @@
 	<script src="<?= base_url('assets/js/drawboard.js') ?>"></script>
 	<script src="<?= base_url('assets/js/place.js') ?>"></script>
 	<script src="<?= base_url('assets/js/transition.js') ?>"></script>
+	<script src="<?= base_url('assets/js/action.js') ?>"></script>
 	<!-- <script src="<?= base_url('assets/js/main.js') ?>"></script> -->
 	
 </head>

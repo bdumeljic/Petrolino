@@ -36,9 +36,7 @@ var Drawboard = {
 		//add mousemove listerner
 		this.canvas.bind("mousemove", this._updateLines);
 		this.canvas.bind("mouseup", this._stopDrawing);
-		
-		
-		
+
 		// Initialize the board's event listeners
 		this.events.init();
 		console.log("Drawboard initialized");
@@ -46,21 +44,18 @@ var Drawboard = {
 	
 	_updateLines: function() {
 		if(Drawboard.isDrawing == true) {
-			// console.log("Drawing " + Drawboard.isDrawing);
-			
+			//create and/or update existing dragging line
 			var sO = Drawboard.startObject;
-			// var sO = Drawboard.startObj;
-			console.log("Drawing " + sO.mouseY);
 			var l = Drawboard.canvas.getLayer("dragLine");
 			
 			if(!l) {
 				Drawboard.canvas.drawLine({
 					strokeStyle: "#000",
-					strokeWidth: 10,
+					strokeWidth: 2,
 					x1: sO.x, y1: sO.y,
 					x2: sO.mouseX, y2: sO.mouseY,
 					layer: true,
-					brinToFront: true,
+					bringToFront: true,
 					name: "dragLine",
 				});
 			} else {
@@ -68,14 +63,54 @@ var Drawboard = {
 				l.y1 = sO.y;
 				l.x2 = sO.mouseX;
 				l.y2 = sO.mouseY;
+				l.bringToFront = true;
 			}
-			// alert('line');
 		}
-		// alert('move');
+		//loop trhough actions and update connections
+		
+		$.each(Drawboard.actions, function(index, value) {
+			// console.log("Update connection " + index);
+			var ac = value;
+			var s = value.source;
+			var t = value.target;
+			var l = Drawboard.canvas.getLayer("line" + index);
+			
+			if(!l)
+			{
+				Drawboard.canvas.drawLine({
+					strokeStyle: "#000",
+					strokeWidth: 2,
+					x1: s.x, y1: s.y,
+					x2: t.x, y2: t.y,
+					layer: true,
+					bringToFront: true,
+					name: "line" + index,
+				});
+			} else {
+				l.x1 = s.x;
+				l.y1 = s.y;
+				l.x2 = t.x;
+				l.y2 = t.y;
+			}
+		});
+		
+		
 	},
 	_stopDrawing: function() {
 		Drawboard.isDrawing = false;
-		Drawboard.startObject = null;
+		if(Drawboard.startObject) {
+			//add place when there is no hittest with a target
+			var pl = new Place(Drawboard.startObject.mouseX,Drawboard.startObject.mouseY);
+			Drawboard.places.push(pl);
+			
+			//connect source and target
+			var targetObject = pl.getLayer();
+			var ac = new Action(Drawboard.startObject, targetObject);
+			Drawboard.actions.push(ac);
+			
+			Drawboard.startObject.visible = false;
+			Drawboard.startObject = null;
+		}
 	},
 	addPlace: function(placeObject) {
 		console.log("Adding placeObject");
