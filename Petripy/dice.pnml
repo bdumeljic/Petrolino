@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pnml>
+  <net type="http://www.yasper.org/specs/epnml-1.1" id="do32">
+    <description>
+      <text>int face1 = 7;
+int face2 = 6;
+int face3 = 5;
+int face4 = 4;
+int statusLED =3;
+int button = 10;
+int faceDelay = 200;
+int n=0;
+</text>
+    </description>
+    <toolspecific tool="Yasper" version="1.2.4020.34351">
+      <roles xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec" />
+    </toolspecific>
+    <transition id="tr1">
+      <name>
+        <text>Bootstrap</text>
+      </name>
+      <description>
+        <text>pinMode(face1,OUTPUT);
+pinMode(face2,OUTPUT);
+pinMode(face3,OUTPUT);
+pinMode(face4,OUTPUT);
+pinMode(statusLED,OUTPUT);
+pinMode(button,INPUT);
+Serial.begin(115200);</text>
+      </description>
+      <graphics>
+        <position x="66" y="198" />
+        <dimension x="32" y="32" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <emitor xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </emitor>
+        <processingTime xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <mean>
+            <text>1</text>
+          </mean>
+          <deviation>
+            <text>0</text>
+          </deviation>
+        </processingTime>
+      </toolspecific>
+    </transition>
+    <transition id="tr2">
+      <description>
+        <text>faceDelay</text>
+      </description>
+      <graphics>
+        <position x="297" y="198" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr3">
+      <description>
+        <text>faceDelay</text>
+      </description>
+      <graphics>
+        <position x="396" y="297" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr4">
+      <description>
+        <text>faceDelay</text>
+      </description>
+      <graphics>
+        <position x="297" y="396" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr5">
+      <description>
+        <text>faceDelay</text>
+      </description>
+      <graphics>
+        <position x="198" y="297" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr7">
+      <graphics>
+        <position x="297" y="660" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr8">
+      <name>
+        <text>wait 1 milli</text>
+      </name>
+      <description>
+        <text>timeout(1);</text>
+      </description>
+      <graphics>
+        <position x="297" y="792" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr9">
+      <graphics>
+        <position x="297" y="495" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr10">
+      <graphics>
+        <position x="297" y="561" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr11">
+      <graphics>
+        <position x="297" y="891" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <place id="pl2">
+      <name>
+        <text>face4</text>
+      </name>
+      <graphics>
+        <position x="198" y="198" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <place id="pl3">
+      <name>
+        <text>face1</text>
+      </name>
+      <graphics>
+        <position x="396" y="198" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <place id="pl4">
+      <name>
+        <text>face2</text>
+      </name>
+      <graphics>
+        <position x="396" y="396" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <place id="pl5">
+      <name>
+        <text>face3</text>
+      </name>
+      <graphics>
+        <position x="198" y="396" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <place id="pl1">
+      <graphics>
+        <position x="231" y="660" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <place id="pl6">
+      <graphics>
+        <position x="363" y="660" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <place id="pl8">
+      <name>
+        <text>buttonStateOn</text>
+      </name>
+      <graphics>
+        <position x="297" y="297" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <place id="pl7">
+      <name>
+        <text>A Petri Net that simulates throwing a four-sided die. LEDs are on pins 3-7 and a switch is on pin 10.</text>
+      </name>
+      <graphics>
+        <position x="660" y="33" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <place id="pl10">
+      <graphics>
+        <position x="231" y="66" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <place id="pl11">
+      <graphics>
+        <position x="363" y="66" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <transition id="tr6">
+      <description>
+        <text>50</text>
+      </description>
+      <graphics>
+        <position x="297" y="0" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr12">
+      <description>
+        <text>50</text>
+      </description>
+      <graphics>
+        <position x="297" y="132" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <arc id="a10" source="pl2" target="tr2" />
+    <arc id="a11" source="tr2" target="pl3">
+      <description>
+        <text>  digitalWrite(face1,HIGH);
+  digitalWrite(face4,LOW);</text>
+      </description>
+    </arc>
+    <arc id="a12" source="pl3" target="tr3" />
+    <arc id="a13" source="tr3" target="pl4">
+      <description>
+        <text>  digitalWrite(face2,HIGH);
+  digitalWrite(face1,LOW);</text>
+      </description>
+    </arc>
+    <arc id="a14" source="pl4" target="tr4" />
+    <arc id="a15" source="tr4" target="pl5">
+      <description>
+        <text>  digitalWrite(face3,HIGH);
+  digitalWrite(face2,LOW);</text>
+      </description>
+    </arc>
+    <arc id="a16" source="pl5" target="tr5" />
+    <arc id="a17" source="tr5" target="pl2">
+      <description>
+        <text> digitalWrite(face4,HIGH);
+ digitalWrite(face3,LOW);</text>
+      </description>
+    </arc>
+    <arc id="a18" source="tr1" target="pl2" />
+    <arc id="a19" source="pl1" target="tr7">
+      <name>
+        <text>button is LOW</text>
+      </name>
+      <description>
+        <text>digitalRead(button)==LOW</text>
+      </description>
+    </arc>
+    <arc id="a20" source="tr7" target="pl6">
+      <name>
+        <text>count down</text>
+      </name>
+      <description>
+        <text>n--;</text>
+      </description>
+    </arc>
+    <arc id="a21" source="pl6" target="tr8" />
+    <arc id="a22" source="tr8" target="pl1">
+      <name>
+        <text>limit  to a reasonable range</text>
+      </name>
+      <description>
+        <text>n=constrain(n,-10,10);</text>
+      </description>
+    </arc>
+    <arc id="a23" source="pl6" target="tr9">
+      <name>
+        <text>n &gt; 10 ?</text>
+      </name>
+      <description>
+        <text>n&gt;10</text>
+      </description>
+      <graphics>
+        <position x="363" y="495" />
+      </graphics>
+    </arc>
+    <arc id="a24" source="pl1" target="tr10">
+      <name>
+        <text>button is HIGH</text>
+      </name>
+      <description>
+        <text>digitalRead(button)==HIGH</text>
+      </description>
+    </arc>
+    <arc id="a25" source="tr10" target="pl6">
+      <name>
+        <text>count up</text>
+      </name>
+      <description>
+        <text>n++;</text>
+      </description>
+    </arc>
+    <arc id="a26" source="pl6" target="tr11">
+      <name>
+        <text>n &lt; -10</text>
+      </name>
+      <description>
+        <text>n&lt;-10</text>
+      </description>
+      <graphics>
+        <position x="363" y="891" />
+      </graphics>
+    </arc>
+    <arc id="a27" source="tr11" target="pl1">
+      <name>
+        <text>turn off lamp</text>
+      </name>
+      <description>
+        <text>digitalWrite(statusLED,LOW);</text>
+      </description>
+      <graphics>
+        <position x="231" y="891" />
+      </graphics>
+    </arc>
+    <arc id="a28" source="tr9" target="pl1">
+      <name>
+        <text>turn on lamp</text>
+      </name>
+      <description>
+        <text>digitalWrite(statusLED,HIGH);
+</text>
+      </description>
+      <graphics>
+        <position x="231" y="495" />
+      </graphics>
+    </arc>
+    <arc id="a29" source="tr1" target="pl1">
+      <graphics>
+        <position x="66" y="660" />
+      </graphics>
+    </arc>
+    <arc id="a30" source="tr9" target="pl8">
+      <graphics>
+        <position x="132" y="462" />
+        <position x="132" y="363" />
+      </graphics>
+    </arc>
+    <arc id="a31" source="pl8" target="tr11">
+      <graphics>
+        <position x="429" y="363" />
+        <position x="429" y="858" />
+      </graphics>
+    </arc>
+    <arc id="a32" source="pl8" target="tr5" />
+    <arc id="a33" source="tr5" target="pl8" />
+    <arc id="a34" source="pl8" target="tr2" />
+    <arc id="a35" source="tr2" target="pl8" />
+    <arc id="a36" source="pl8" target="tr4" />
+    <arc id="a37" source="tr4" target="pl8" />
+    <arc id="a38" source="pl8" target="tr3" />
+    <arc id="a39" source="tr3" target="pl8" />
+    <arc id="a53" source="pl10" target="tr6" />
+    <arc id="a54" source="tr6" target="pl11">
+      <description>
+        <text>digitalWrite(StatusLED,HIGH);</text>
+      </description>
+    </arc>
+    <arc id="a55" source="pl11" target="tr12" />
+    <arc id="a56" source="tr12" target="pl10">
+      <description>
+        <text>digitalWrite(StatusLED,LOW);</text>
+      </description>
+    </arc>
+    <arc id="a57" source="tr1" target="pl10">
+      <graphics>
+        <position x="66" y="66" />
+      </graphics>
+    </arc>
+    <arc id="a58" source="pl8" target="tr12">
+      <graphics>
+        <position x="330" y="165" />
+        <position x="330" y="264" />
+      </graphics>
+    </arc>
+    <arc id="a59" source="tr12" target="pl8">
+      <graphics>
+        <position x="330" y="165" />
+        <position x="330" y="264" />
+      </graphics>
+    </arc>
+  </net>
+</pnml>

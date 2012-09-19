@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pnml>
+  <net type="http://www.yasper.org/specs/epnml-1.1" id="do1">
+    <toolspecific tool="Yasper" version="1.2.4020.34351">
+      <roles xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec" />
+    </toolspecific>
+    <place id="pl1">
+      <name>
+        <text>blink OFF</text>
+      </name>
+      <description>
+        <text>a state in which the blink is off</text>
+      </description>
+      <graphics>
+        <position x="198" y="165" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <place id="pl2">
+      <name>
+        <text>blinkON</text>
+      </name>
+      <graphics>
+        <position x="429" y="165" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <transition id="tr1">
+      <name>
+        <text>transition to light on</text>
+      </name>
+      <description>
+        <text>timeout(500);</text>
+      </description>
+      <graphics>
+        <position x="297" y="99" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr2">
+      <name>
+        <text>transition for light off</text>
+      </name>
+      <description>
+        <text>timeout(200);</text>
+      </description>
+      <graphics>
+        <position x="297" y="231" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr4">
+      <name>
+        <text>Bootstrap</text>
+      </name>
+      <description>
+        <text>pinMode(13,OUTPUT);
+pinMode(10,INPUT);
+Serial.begin(57600);</text>
+      </description>
+      <graphics>
+        <position x="99" y="165" />
+        <dimension x="32" y="32" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <emitor xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </emitor>
+        <processingTime xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <mean>
+            <text>1</text>
+          </mean>
+          <deviation>
+            <text>0</text>
+          </deviation>
+        </processingTime>
+      </toolspecific>
+    </transition>
+    <arc id="a6" source="pl1" target="tr1">
+      <name>
+        <text>guard for blinkON: pin 10 low</text>
+      </name>
+      <description>
+        <text>digitalRead(10)==LOW</text>
+      </description>
+      <graphics>
+        <position x="198" y="99" />
+      </graphics>
+    </arc>
+    <arc id="a7" source="tr1" target="pl2">
+      <name>
+        <text>action to blinkON</text>
+      </name>
+      <description>
+        <text>digitalWrite(13,HIGH);</text>
+      </description>
+      <graphics>
+        <position x="363" y="99" />
+        <position x="429" y="132" />
+      </graphics>
+    </arc>
+    <arc id="a8" source="pl2" target="tr2">
+      <name>
+        <text>guard for blinkOff</text>
+      </name>
+      <description>
+        <text>digitalRead(10)==HIGH</text>
+      </description>
+    </arc>
+    <arc id="a9" source="tr2" target="pl1">
+      <name>
+        <text>action for blinkOFF</text>
+      </name>
+      <description>
+        <text>digitalWrite(13,LOW);</text>
+      </description>
+    </arc>
+    <arc id="a10" source="tr4" target="pl1" />
+  </net>
+</pnml>

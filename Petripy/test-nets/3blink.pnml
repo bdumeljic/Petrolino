@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pnml>
+  <net type="http://www.yasper.org/specs/epnml-1.1" id="do1">
+    <description>
+      <text>int red=7;
+int green=5;
+int blue=6;
+int yellow=4;
+int white=3;
+int n=500;
+</text>
+    </description>
+    <toolspecific tool="Yasper" version="1.2.4020.34351">
+      <roles xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec" />
+    </toolspecific>
+    <place id="pl1">
+      <name>
+        <text>blink OFF</text>
+      </name>
+      <description>
+        <text>a state in which the blink is off</text>
+      </description>
+      <graphics>
+        <position x="198" y="165" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <place id="pl2">
+      <name>
+        <text>blinkON</text>
+      </name>
+      <graphics>
+        <position x="330" y="165" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <place id="pl3">
+      <name>
+        <text>blink OFF</text>
+      </name>
+      <description>
+        <text>a state in which the blink is off</text>
+      </description>
+      <graphics>
+        <position x="462" y="198" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <place id="pl4">
+      <name>
+        <text>blinkON</text>
+      </name>
+      <graphics>
+        <position x="693" y="198" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <place id="pl7">
+      <name>
+        <text>blink OFF</text>
+      </name>
+      <description>
+        <text>a state in which the blink is off</text>
+      </description>
+      <graphics>
+        <position x="462" y="429" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <place id="pl8">
+      <name>
+        <text>blinkON</text>
+      </name>
+      <graphics>
+        <position x="660" y="429" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <transition id="tr1">
+      <name>
+        <text>transition to light on</text>
+      </name>
+      <description>
+        <text>timeout(5000);</text>
+      </description>
+      <graphics>
+        <position x="264" y="99" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr2">
+      <name>
+        <text>transition for light off</text>
+      </name>
+      <description>
+        <text>timeout(5000);</text>
+      </description>
+      <graphics>
+        <position x="264" y="231" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr4">
+      <name>
+        <text>Bootstrap</text>
+      </name>
+      <description>
+        <text>pinMode(13,OUTPUT);
+pinMode(red,OUTPUT);
+pinMode(green,OUTPUT);
+pinMode(blue,OUTPUT);
+pinMode(yellow,OUTPUT);
+pinMode(white,OUTPUT);
+Serial.begin(115200);</text>
+      </description>
+      <graphics>
+        <position x="132" y="297" />
+        <dimension x="32" y="32" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <emitor xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </emitor>
+        <processingTime xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <mean>
+            <text>1</text>
+          </mean>
+          <deviation>
+            <text>0</text>
+          </deviation>
+        </processingTime>
+      </toolspecific>
+    </transition>
+    <transition id="tr3">
+      <name>
+        <text>transition to light on</text>
+      </name>
+      <description>
+        <text>timeout(6000);</text>
+      </description>
+      <graphics>
+        <position x="561" y="132" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr5">
+      <name>
+        <text>transition for light off</text>
+      </name>
+      <description>
+        <text>timeout(6000);</text>
+      </description>
+      <graphics>
+        <position x="561" y="264" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr10">
+      <name>
+        <text>transition to light on</text>
+      </name>
+      <description>
+        <text>timeout(200);</text>
+      </description>
+      <graphics>
+        <position x="561" y="363" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr11">
+      <name>
+        <text>transition for light off</text>
+      </name>
+      <description>
+        <text>timeout(200);</text>
+      </description>
+      <graphics>
+        <position x="561" y="495" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <arc id="a6" source="pl1" target="tr1" />
+    <arc id="a7" source="tr1" target="pl2">
+      <name>
+        <text>action to blinkON</text>
+      </name>
+      <description>
+        <text>digitalWrite(red,HIGH);</text>
+      </description>
+    </arc>
+    <arc id="a8" source="pl2" target="tr2">
+      <name>
+        <text>guard for blinkOff</text>
+      </name>
+    </arc>
+    <arc id="a9" source="tr2" target="pl1">
+      <name>
+        <text>action for blinkOFF</text>
+      </name>
+      <description>
+        <text>digitalWrite(red,LOW);</text>
+      </description>
+    </arc>
+    <arc id="a10" source="tr4" target="pl1" />
+    <arc id="a21" source="pl3" target="tr3" />
+    <arc id="a22" source="tr3" target="pl4">
+      <name>
+        <text>action to blinkON</text>
+      </name>
+      <description>
+        <text>digitalWrite(green,HIGH);</text>
+      </description>
+    </arc>
+    <arc id="a23" source="pl4" target="tr5">
+      <name>
+        <text>guard for blinkOff</text>
+      </name>
+    </arc>
+    <arc id="a24" source="tr5" target="pl3">
+      <name>
+        <text>action for blinkOFF</text>
+      </name>
+      <description>
+        <text>digitalWrite(green,LOW);</text>
+      </description>
+    </arc>
+    <arc id="a25" source="tr4" target="pl3">
+      <graphics>
+        <position x="396" y="297" />
+      </graphics>
+    </arc>
+    <arc id="a26" source="pl7" target="tr10" />
+    <arc id="a27" source="tr10" target="pl8">
+      <name>
+        <text>action to blinkON</text>
+      </name>
+      <description>
+        <text>digitalWrite(yellow,HIGH);</text>
+      </description>
+    </arc>
+    <arc id="a28" source="pl8" target="tr11">
+      <name>
+        <text>guard for blinkOff</text>
+      </name>
+    </arc>
+    <arc id="a29" source="tr11" target="pl7">
+      <name>
+        <text>action for blinkOFF</text>
+      </name>
+      <description>
+        <text>digitalWrite(yellow,LOW);</text>
+      </description>
+    </arc>
+    <arc id="a30" source="tr4" target="pl7">
+      <graphics>
+        <position x="363" y="330" />
+      </graphics>
+    </arc>
+  </net>
+</pnml>

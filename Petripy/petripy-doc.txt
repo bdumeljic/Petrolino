@@ -1,0 +1,110 @@
+Petripy compiles elementary Petri Nets (in the form of .pnml files) into C code. It has been written in Python 2.7 
+
+.1 Rationale
+
+The objective of this project is to make C programming easier for industrial designers and other non-professional occasional programmers, in particular on the Arduino developer board. Petri Nets make coordination and concurrency visible. Relatively simple microcontrollers, like the AVR unit on the Arduino board, are too limited to support multitasking or threading. The programmer is left to interrupts and his own wits. 
+
+.2 Description
+
+PNML is a more-or-less accepted XML standard for the representation of Petri Nets. Difficulties with standardizing formats depend from the great variety of specialized and slightly tweaked network types out there, and also by the very different communities that use Petri Nets: business process analysts, mathematicians, computer scientists.. 
+
+In this project, PNML files have been generated and edited using Yasper, a Windows Petri Net editor developed by TUe. C code has been placed in the "description" field of the network elements. The descriptions can be currently edited by double clicking on the element.
+
+Open blink-on-change.pnml with Yasper or another PNML editor.
+
+* Initial Marking
+
+There must be a transition called Bootstrap (Yasper marks it with an E) that has no preconditions. It fires 1! at the beginning of execution and provides the initial marking of the net.
+
+* Inflow arc guard expressions
+
+Inflow arcs are augmented with guard expressions in C. For example, the arc that connects blinkOFF to the "light on" transition has
+
+ digitalRead(10)==LOW
+
+as a guard expression. This refers to digital pin 10 on the microcontroller. 
+
+* Outflow arc actions
+
+Outflow arcs are augmented with actions. For example, the arc that connects the "light on" transition to blinkOn has
+
+ digitalWrite(13,HIGH);
+
+as an action. This turns on pin 13 on the microcontroller.
+
+* Transition timeout
+
+the "light on" transition has a timeout. This is indicated as 
+
+ timeout(500);
+
+* Firing rule for transitions
+
+ A transition will fire if
+
+  ALL its preconditions are true (that's to say, there are tokens in all its precondition places)
+ and
+  NONE of its postconditions are true (that's to say, there are no tokens in its postcondition places)
+ and
+  (ALL of the guard expressions on the inflow arcs are true) 
+   or
+  (the rule times out)
+
+ After the rule has fired, all the tokens in the precondition places are consumed and tokens are placed in all its postcondition places. 
+
+* An example of rule translation
+
+the "light on" transition is translated to the following C code:
+
+boolean tr1() {
+  if (pl1 && !pl2)
+  {
+    if (timetr1== -1)
+    {
+      timetr1=millis();
+    }
+    {
+      if ((millis()-timetr1 > 500) || (digitalRead(10)==LOW))
+      {
+        stateChanged=true;
+        pl1=false;
+        pl2=true;
+        digitalWrite(13,HIGH);
+        timetr1=-1;
+      }
+    }
+  }
+}
+
+
+tr1 is a unique transition ID. Every transition, place and arc in a PNML file must have a unique ID.
+pl1 and pl2 are booleans that represent the "blink OFF" and "blink ON" places.
+timetr1 stores the time (in milliseconds) at which the transition became enabled.
+
+* Scheduling
+
+Petripy can generate a round robin or a stochastic scheduler. The RR scheduler is trivial
+
+void loop() 
+{
+ stateChanged=false;
+ tr1(); //transition to light on
+ tr2(); //transition for light off
+ if (stateChanged){
+	outputStatusLine();
+	}
+}
+
+outputStatusLine is a function that writes to the serial port a compact representation of the net's places.
+
+* Conventions
+
+Arduino programs must have a void setup() function that is run once, at system reset, and a void loop() function that is called by the runtime as frequently as possible. The loop function contains the scheduler.
+The setup() function must be added by the user as the description of the "Bootstrap" transition.
+Anything that is found in the description of the net (accessible in Yasper by double clicking anywhere on a blank area) is added to the C code at top level. This is necessary, for example, for creating global variables.
+
+* Dashboard
+
+dashboard attempts to load a pnml file and starts listening on the serial port for data written by outputStatusLine (on the Arduino). Dashboard display graphically the Petri Net and animates the tokens according to what is happening on the microcontroller.
+
+This program is incomplete.

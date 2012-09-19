@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pnml>
+  <net type="http://www.yasper.org/specs/epnml-1.1" id="do1">
+    <description>
+      <text>int n=0;</text>
+    </description>
+    <toolspecific tool="Yasper" version="1.2.4020.34351">
+      <roles xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec" />
+    </toolspecific>
+    <place id="pl1">
+      <graphics>
+        <position x="132" y="198" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <place id="pl2">
+      <graphics>
+        <position x="264" y="198" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <tokenCaseSensitive xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </tokenCaseSensitive>
+      </toolspecific>
+    </place>
+    <transition id="tr1">
+      <name>
+        <text>Bootstrap</text>
+      </name>
+      <description>
+        <text>Serial.begin(57600);
+pinMode(13,OUTPUT);
+pinMode(7,INPUT);</text>
+      </description>
+      <graphics>
+        <position x="66" y="198" />
+        <dimension x="32" y="32" />
+      </graphics>
+      <toolspecific tool="Yasper" version="1.2.4020.34351">
+        <emitor xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <text>true</text>
+        </emitor>
+        <processingTime xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">
+          <mean>
+            <text>1</text>
+          </mean>
+          <deviation>
+            <text>0</text>
+          </deviation>
+        </processingTime>
+      </toolspecific>
+    </transition>
+    <transition id="tr2">
+      <graphics>
+        <position x="198" y="198" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr3">
+      <name>
+        <text>wait 25 millis</text>
+      </name>
+      <description>
+        <text>timeout(25);</text>
+      </description>
+      <graphics>
+        <position x="198" y="330" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr4">
+      <graphics>
+        <position x="198" y="33" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr5">
+      <graphics>
+        <position x="198" y="99" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr6">
+      <graphics>
+        <position x="198" y="429" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <arc id="a1" source="tr1" target="pl1" />
+    <arc id="a2" source="pl1" target="tr2">
+      <name>
+        <text>pin 7 is LOW</text>
+      </name>
+      <description>
+        <text>digitalRead(7)==LOW</text>
+      </description>
+    </arc>
+    <arc id="a3" source="tr2" target="pl2">
+      <name>
+        <text>count down</text>
+      </name>
+      <description>
+        <text>n--;</text>
+      </description>
+    </arc>
+    <arc id="a4" source="pl2" target="tr3" />
+    <arc id="a5" source="tr3" target="pl1">
+      <name>
+        <text>limit  to a reasonable range</text>
+      </name>
+      <description>
+        <text>n=constrain(n,-100,100);</text>
+      </description>
+    </arc>
+    <arc id="a6" source="pl2" target="tr4">
+      <name>
+        <text>n &gt; 100 ?</text>
+      </name>
+      <description>
+        <text>n&gt;100</text>
+      </description>
+      <graphics>
+        <position x="264" y="33" />
+      </graphics>
+    </arc>
+    <arc id="a7" source="pl1" target="tr5">
+      <name>
+        <text>pin 7 is HIGH</text>
+      </name>
+      <description>
+        <text>digitalRead(7)==HIGH</text>
+      </description>
+    </arc>
+    <arc id="a8" source="tr5" target="pl2">
+      <name>
+        <text>count up</text>
+      </name>
+      <description>
+        <text>n++;</text>
+      </description>
+    </arc>
+    <arc id="a9" source="pl2" target="tr6">
+      <name>
+        <text>n &lt; -100</text>
+      </name>
+      <description>
+        <text>n&lt;-100</text>
+      </description>
+      <graphics>
+        <position x="264" y="429" />
+      </graphics>
+    </arc>
+    <arc id="a20" source="tr6" target="pl1">
+      <name>
+        <text>turn off lamp</text>
+      </name>
+      <description>
+        <text>digitalWrite(13,LOW);</text>
+      </description>
+      <graphics>
+        <position x="132" y="429" />
+      </graphics>
+    </arc>
+    <arc id="a21" source="tr4" target="pl1">
+      <name>
+        <text>turn on lamp</text>
+      </name>
+      <description>
+        <text>digitalWrite(13,HIGH);
+</text>
+      </description>
+      <graphics>
+        <position x="132" y="33" />
+      </graphics>
+    </arc>
+  </net>
+</pnml>
