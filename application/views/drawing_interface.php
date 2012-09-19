@@ -26,7 +26,7 @@
 			<fieldset>
 				<input type="text" name="name" placeholder="Name" class="span12"/><br>
 				<textarea rows="7" placeholder="Scope code" class="span12"></textarea>
-            	<button type="submit" class="btn btn-block btn-primary" data-toggle="modal" data-target="#codeModal">Convert to Arduino code</button>
+            	<button type="submit" id="convertbutton" class="btn btn-block btn-primary" data-toggle="modal" data-target="#codeModal">Convert to Arduino code</button>
 				<button type="submit" class="btn btn-block disabled">Download PNML file</button>
 				<button type="submit" id="uploadbutton" class="btn btn-block disabled">Upload a PNML file</button>
 			</fieldset>

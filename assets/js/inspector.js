@@ -21,7 +21,7 @@ Inspector.events = {
 		});
 		
 		$("#convertbutton").click(function() {
-			console.log("Inspector.events Convert button clicked")
+			$('#codeModal .modal-body').html(Main.convertToArduino());
 		});	
 		
 		$("#createPlace").click( function() {
