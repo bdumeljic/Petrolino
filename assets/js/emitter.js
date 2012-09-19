@@ -19,15 +19,7 @@ function Emitter(x, y) {
 		// Set description
 		this.description = "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
 		
-		
-		// Build ToolTip
-		this.toolTip = $('<div class="popover right"><div class="arrow"></div><h3 class="popover-title">' + this.name + '</h3><div class="popover-content"><p>' + this.description + '</p></div></div>');
-		
-		this.toolTip.css('position', 'absolute');
-		this.toolTip.css('display', 'none');
-		this.toolTip.css('z-index', '1000');		
-		
-		$('body').append(this.toolTip);
+		this.tooltip = new Tooltip(this);
 		
 		// Draw the actor
 		this.actor = this.draw(this.id, x, y, this);
@@ -46,15 +38,6 @@ function Emitter(x, y) {
 		return y;
 	}
 	
-	this.toggleToolTip = function() {
-		Drawboard.hideToolTips();
-		this.toolTip.css({top: this.getY() - this.toolTip.height()/ 2 , left: this.getX() + 25});
-		this.toolTip.toggle();
-	}
-	
-	this.hideToolTip = function() {
-		this.toolTip.hide();
-	}
 	this.hideCentralPoint = function() {
 		var l = Drawboard.canvas.getLayer(this.id + '_centerPoint');
 		l.visible = false;
@@ -65,7 +48,7 @@ function Emitter(x, y) {
 			name: id,
 		
 			strokeStyle: "#333",
-			fillStyle: "#666",
+			fillStyle: "#3E8C84",
 			strokeWidth: 0,
 			cornerRadius: 6,
 			
@@ -113,7 +96,8 @@ function Emitter(x, y) {
 				cP.visible = true;
 				
 				if(this.beingClicked) {
-					delegate.toggleToolTip();	
+					delegate.tooltip.update();
+					delegate.tooltip.toggleToolTip();	
 				}
 			},
 			mousemove: function(l) {
