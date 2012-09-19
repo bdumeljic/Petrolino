@@ -4,12 +4,11 @@
 class Comm extends CI_Controller {
 
 	// Converts pnml to c
-	public function convert()
-	{	
+	public function convert() {	
 		$pnml = $_POST['pnml'];
 		
 		$fileName = BASEPATH . "/../tmp/" . (md5(microtime() + rand()));
-		$fh = fopen($fileName, 'w+') or die("can't open file" . $fileName . ".pnml");
+		$fh = fopen($fileName . ".pnml", 'w+') or die("can't open file" . $fileName);
 		
 		fwrite($fh, $pnml);
 		
