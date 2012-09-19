@@ -51,6 +51,29 @@ function Tooltip(delegate) {
 		else
 			this.hideToolTip();
 	}
+	
+	this.showLayout = function() {
+		// Update variables
+		this.name = delegate.name;
+		this.description = delegate.description;
+		
+		if(this.description == '') {
+			 this.description = 'Click to edit';
+		}
+		
+		// Update layout
+		this.layout.html('<div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div>');
+		$(this.layout).find(".popover-title").html(this.name).bind("click", this.makeEditable);
+		$(this.layout).find(".popover-content:first").html(this.description).bind("click", this.makeEditable);
+		// $(this.layout).find(".popover-title").html(this.name).bind("click", this.makeEditable);
+		// $(this.layout).find(".popover-content:first").html(this.description).bind("click", this.makeEditable);
+		
+	}
+	
+	this.editLayout = function(title, code) {
+		this.layout.html('<div class="arrow"></div><h3 class="popover-title"><input type="text" id="toolTipTitle" value="' + title + '" /></h3><div class="popover-content"><textarea rows="6" class="code-area" style="margin-right: 15px;" id="toolTipCode" placeholder="Click to edit">' + code + '</textarea></div><div class="popover-content btn-container"><button type="submit" class="btn btn-block btn-primary" id="tooltipAction">Save</button></div>');
+	}
+	
 	this.makeEditable = function(e) {
 		// alert(e.target);
 		var title = $(refObj.layout).find(".popover-title");//.unbind();
@@ -70,10 +93,7 @@ function Tooltip(delegate) {
 		if(code == 'Click to edit') {
 			code = '';
 		}
-
-		title.html('<input type="text" id="toolTipTitle" value="' + title_txt + '" />');
-		content.html('<textarea rows="6" class="code-area" style="margin-right: 15px;" id="toolTipCode" placeholder="Click to edit">' + code + '</textarea>');
-		content.after('<div class="popover-content"><button type="submit" class="btn btn-block btn-primary" id="tooltipAction">Save</button></div>');
+		refObj.editLayout(title_txt, code);
 		
 		$('#tooltipAction').click(function(e) {
 			// alert(title);
@@ -81,48 +101,18 @@ function Tooltip(delegate) {
 			refObj.delegate.name = title_val;//'<p>' + code + '</p>';
 
 			// var name = toolTipCode;
-			var code_val = $('#toolTipCode').val();
+			var code_val = $('#toolTipCode:last').val();
+			alert(code_val);
 			if(code_val != 'Click to edit') {
 				refObj.delegate.description = code_val;//'<p>' + code + '</p>';
 			}
-			if (code_val == ''){
-				code_val = 'Click to edit';
-			}
-			//alert(title + " cvs " + $(refObj.layout).find(".popover-title").html());
-			title.html(title_val).bind("click", refObj.makeEditable);
-			content.html(code_val).bind("click", refObj.makeEditable);
-			$(this).parent().remove();
-			// title.bind("click", refObj.makeEditable);
-			/*
-			content.click(function(e) {
-				 alert('test');
-				 refObj.makeEditable(e);
-			});
-			*/
+			refObj.showLayout();
 		});
-		//e.preventDefault();
-		
-	// .hide();//('ts');
 	}
-	this.saveData = function(e) {
-		// alert('test');
-		// var name = toolTipCode;
-		// var code = $('#toolTipCode').val();
-		// alert(code);
-	}
+	
 	// Update tooltip
 	this.update = function() {
 		console.log("Update");
-		// Update variables
-		this.name = delegate.name;
-		this.description = delegate.description;
-		
-		if(this.description == '') {
-			 this.description = 'Click to edit';
-		}
-		
-		// Update layout
-		$(this.layout).find(".popover-title").html(this.name).bind("click", this.makeEditable);
-		$(this.layout).find(".popover-content:first").html(this.description).bind("click", this.makeEditable);
+		this.showLayout();
 	}
 }
