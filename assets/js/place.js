@@ -52,6 +52,11 @@ function Place(x, y) {
 		this.toolTip.hide();
 	}
 	
+	this.hideCentralPoint = function() {
+		var l = Drawboard.canvas.getLayer(this.id + '_centerPoint');
+		l.visible = false;
+	}
+	
 	this.draw = function(id, x, y, delegate) {
 		Drawboard.canvas.drawArc({
 			name: id,

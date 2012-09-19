@@ -112,7 +112,7 @@ var Drawboard = {
 			var ac = new Action(sourceObject, targetObject);
 			Drawboard.actions.push(ac);
 			
-			// Drawboard.startObject.actor.visible = false;
+			Drawboard.startObject.hideCentralPoint();
 			Drawboard.startObject = null;
 			//_updateLines();
 			var dL = Drawboard.canvas.getLayer("dragLine");

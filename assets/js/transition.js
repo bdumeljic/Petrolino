@@ -51,6 +51,10 @@ function Transition(x, y) {
 	this.hideToolTip = function() {
 		this.toolTip.hide();
 	}
+	this.hideCentralPoint = function() {
+		var l = Drawboard.canvas.getLayer(this.id + '_centerPoint');
+		l.visible = false;
+	}
 	
 	this.draw = function(id, x, y, delegate) {
 		
@@ -93,22 +97,23 @@ function Transition(x, y) {
 				}
 				Drawboard.possibleTargetObject = null;
 			},
-			mousedown: function() {
+			mousedown: function(l) {
 				this.beingClicked = true;
+				var cP = Drawboard.canvas.getLayer(l.name + '_centerPoint');
+				cP.visible = false;
+				
 			},
 			mouseup: function(l) {
 				var cP = Drawboard.canvas.getLayer(l.name + '_centerPoint');
 				cP.x = l.x;
 				cP.y = l.y;
+				cP.visible = true;
 				
 				if(this.beingClicked) {
 					delegate.toggleToolTip();	
 				}
 			},
 			mousemove: function(l) {
-				var cP = Drawboard.canvas.getLayer(l.name + '_centerPoint');
-				cP.x = l.x;
-				cP.y = l.y;
 			},
 			click: function(l) {
 			},
