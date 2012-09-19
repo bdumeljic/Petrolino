@@ -183,29 +183,3 @@ var Drawboard = {
 
 }
 
-// Drawboard.events
-// This class holds all the event listeners for the drawboard
-Drawboard.events = {
-
-	init: function() {
-		console.log("Drawboard.events initialized");
-		$("#createPlace").click( function() {
-			var pl = new Place();
-			Drawboard.places.push(pl);
-		});
-		
-		$("#createTransition").click( function() { 
-			var tr = new Transition();
-			Drawboard.transitions.push(tr);
-		});
-		
-		$("#createAction").click( function() { 
-			var ac = new Action();
-			Drawboard.actions.push(ac);
-		});
-	}
-}
-
-Drawboard.layout = {
-	
-}

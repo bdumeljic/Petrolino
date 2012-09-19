@@ -12,9 +12,27 @@ var Inspector = {
 Inspector.events = {
 
 	init: function() {
-		$("#startbutton").click(function(){Inspector.layout.showProjectInspector()});
-		$("#downloadbutton").click(function(){console.log("Inspector.events Dowload button clicked")});
-		$("#convertbutton").click(function(){console.log("Inspector.events Convert button clicked")});		
+		$("#startbutton").click(function() {
+			Inspector.layout.showProjectInspector()
+		});
+		
+		$("#downloadbutton").click(function() {
+			console.log("Inspector.events Dowload button clicked")
+		});
+		
+		$("#convertbutton").click(function() {
+			console.log("Inspector.events Convert button clicked")
+		});	
+		
+		$("#createPlace").click( function() {
+			var pl = new Place();
+			Drawboard.places.push(pl);
+		});
+		
+		$("#createTransition").click( function() { 
+			var tr = new Transition();
+			Drawboard.transitions.push(tr);
+		});
 	},
 }
 

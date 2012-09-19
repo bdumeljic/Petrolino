@@ -25,7 +25,7 @@
 	<script src="<?= base_url('assets/js/emitter.js') ?>"></script>
 	<script src="<?= base_url('assets/js/inspector.js') ?>"></script>
 	<script src="<?= base_url('assets/js/tooltip.js') ?>"></script>
-	<!-- <script src="<?= base_url('assets/js/main.js') ?>"></script> -->
+	<script src="<?= base_url('assets/js/main.js') ?>"></script>
 	
 </head>
 <body>
