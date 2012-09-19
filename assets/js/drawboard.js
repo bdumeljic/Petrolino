@@ -77,7 +77,7 @@ var Drawboard = {
 	
 	hideToolTips: function() {
 		$.each(this.places.concat(this.transitions), function() {
-			this.hideToolTip();
+			this.tooltip.hideToolTip();
 		});
 	},
 	

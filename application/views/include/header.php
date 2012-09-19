@@ -18,11 +18,13 @@
 	<script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
 	<script src="<?= base_url('assets/js/jcanvas.min.js') ?>"></script>
 	<script src="<?= base_url('assets/js/drawboard.js') ?>"></script>
+
 	<script src="<?= base_url('assets/js/place.js') ?>"></script>
 	<script src="<?= base_url('assets/js/transition.js') ?>"></script>
 	<script src="<?= base_url('assets/js/action.js') ?>"></script>
 	<script src="<?= base_url('assets/js/emitter.js') ?>"></script>
 	<script src="<?= base_url('assets/js/inspector.js') ?>"></script>
+	<script src="<?= base_url('assets/js/tooltip.js') ?>"></script>
 	<!-- <script src="<?= base_url('assets/js/main.js') ?>"></script> -->
 	
 </head>

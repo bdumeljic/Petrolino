@@ -18,17 +18,18 @@ function Place(x, y) {
 		
 		// Set description
 		this.description = "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-		
-		
-		// Build ToolTip
-		this.toolTip = $('<div class="popover right"><div class="arrow"></div><h3 class="popover-title">' + this.id + '</h3><div class="popover-content"><p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p></div></div>');
-		
-		this.toolTip.css('position', 'absolute');
-		this.toolTip.css('display', 'none');
-		this.toolTip.css('z-index', '1000');		
-		
-		$('body').append(this.toolTip);
-		
+		// 
+// 		
+// 		// Build ToolTip
+// 		this.toolTip = $('<div class="popover right"><div class="arrow"></div><h3 class="popover-title">' + this.id + '</h3><div class="popover-content"><p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p></div></div>');
+// 		
+// 		this.toolTip.css('position', 'absolute');
+// 		this.toolTip.css('display', 'none');
+// 		this.toolTip.css('z-index', '1000');		
+// 		
+// 		$('body').append(this.toolTip);
+// 		
+		this.tooltip = new Tooltip(this);
 		// Draw the actor
 		this.actor = this.draw(this.id, x, y, this);
 	}
@@ -44,16 +45,6 @@ function Place(x, y) {
 		var y = this.actor.y;
 		console.log('y=' + y)
 		return y;
-	}
-	
-	this.toggleToolTip = function() {
-		Drawboard.hideToolTips();
-		this.toolTip.css({top: this.getY() - this.toolTip.height()/ 2 , left: this.getX() + 25});
-		this.toolTip.toggle();
-	}
-	
-	this.hideToolTip = function() {
-		this.toolTip.hide();
 	}
 	
 	this.hideCentralPoint = function() {
@@ -100,7 +91,8 @@ function Place(x, y) {
 			},
 			mouseup: function(l) {
 				if(this.beingClicked) {
-					delegate.toggleToolTip();	
+					delegate.tooltip.update();
+					delegate.tooltip.toggleToolTip();	
 				}
 				var cP = Drawboard.canvas.getLayer(l.name + '_centerPoint');
 				cP.x = l.x;
@@ -111,7 +103,7 @@ function Place(x, y) {
 			},
 			drag: function() {
 				this.beingClicked = false;
-				delegate.hideToolTip();
+				delegate.tooltip.hideToolTip();
 			}
 		});
 		
