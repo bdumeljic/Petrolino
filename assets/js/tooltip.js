@@ -25,12 +25,12 @@ function Tooltip(delegate) {
 
 	// Returns the x position relative to parent
 	this.getX = function() {
-		return (delegate.getX() + 25);
+		return (delegate.getX() -this.layout.width()/ 2);
 	}
 	
 	// Returns the y position relative to parent
 	this.getY = function() {
-		return (delegate.getY() - this.layout.height()/ 2);
+		return (delegate.getY() + 25);
 	}
 	
 	// Toggle tooltip
@@ -52,29 +52,56 @@ function Tooltip(delegate) {
 			this.hideToolTip();
 	}
 	this.makeEditable = function(e) {
-		$(e.target).unbind();
-		var code = $(e.target).find('#toolTipCode').text();
+		// alert(e.target);
+		var title = $(refObj.layout).find(".popover-title");//.unbind();
+		var content = $(refObj.layout).find(".popover-content:first");//.unbind();
+		title.unbind();
+		content.unbind();
+		
+		var title_txt = title.find('#toolTipTitle').text();
+		if(!title_txt) {
+			title_txt = title.text();
+		}
+		
+		var code = content.find('#toolTipCode').text();
 		if(!code) {
-			code = $(e.target).text();
+			code = content.text();
 		}
 		if(code == 'Click to edit') {
 			code = '';
 		}
-		$(e.target).html('<textarea rows="10" style="margin-right: 15px;" id="toolTipCode" placeholder="Click to edit">' + code + '</textarea>');
-		$(e.target).append('<button type="submit" class="btn btn-block btn-primary" id="tooltipAction">Save</button>');
-		$('#tooltipAction').bind('click',function() {
-			// var name = toolTipCode;
-			var code = $('#toolTipCode').val();
-			if(code != 'Click to edit') {
-				refObj.delegate.description = code;//'<p>' + code + '</p>';
-			}
-			if (code == ''){
-				code = 'Click to edit';
-			}
-			$(refObj.layout).find(".popover-content").html(code).bind("click", refObj.makeEditable);
+
+		title.html('<input id="toolTipTitle" value="' + title_txt + '" />');
+		content.html('<textarea rows="6" style="margin-right: 15px;" id="toolTipCode" placeholder="Click to edit">' + code + '</textarea>');
+		content.after('<div class="popover-content"><button type="submit" class="btn btn-block btn-primary" id="tooltipAction">Save</button></div>');
 		
-			
+		$('#tooltipAction').click(function(e) {
+			// alert(title);
+			var title_val = $('#toolTipTitle').val();
+			refObj.delegate.name = title_val;//'<p>' + code + '</p>';
+
+			// var name = toolTipCode;
+			var code_val = $('#toolTipCode').val();
+			if(code_val != 'Click to edit') {
+				refObj.delegate.description = code_val;//'<p>' + code + '</p>';
+			}
+			if (code_val == ''){
+				code_val = 'Click to edit';
+			}
+			//alert(title + " cvs " + $(refObj.layout).find(".popover-title").html());
+			title.html(title_val).bind("click", refObj.makeEditable);
+			content.html(code_val).bind("click", refObj.makeEditable);
+			$(this).parent().remove();
+			// title.bind("click", refObj.makeEditable);
+			/*
+			content.click(function(e) {
+				 alert('test');
+				 refObj.makeEditable(e);
+			});
+			*/
 		});
+		//e.preventDefault();
+		
 	// .hide();//('ts');
 	}
 	this.saveData = function(e) {
@@ -95,7 +122,7 @@ function Tooltip(delegate) {
 		}
 		
 		// Update layout
-		$(this.layout).find(".popover-title").html(this.name);
-		$(this.layout).find(".popover-content").html(this.description).bind("click", this.makeEditable);
+		$(this.layout).find(".popover-title").html(this.name).bind("click", this.makeEditable);
+		$(this.layout).find(".popover-content:first").html(this.description).bind("click", this.makeEditable);
 	}
 }
