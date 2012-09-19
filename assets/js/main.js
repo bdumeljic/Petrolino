@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	Main.init();
+	// Main.init();
 })
 
 // Main class

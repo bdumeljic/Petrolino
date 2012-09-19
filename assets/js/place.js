@@ -103,6 +103,8 @@ function Place(x, y) {
 			},
 			drag: function() {
 				this.beingClicked = false;
+				var cP = Drawboard.canvas.getLayer(l.name + '_centerPoint');
+				cP.visible = false;
 				delegate.tooltip.hideToolTip();
 			}
 		});

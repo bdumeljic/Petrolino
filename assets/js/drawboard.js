@@ -42,7 +42,7 @@ var Drawboard = {
 		var tr = new Emitter();
 
 		// Initialize the board's event listeners
-		this.events.init();
+		// this.events.init();
 		console.log("Drawboard initialized");
 	},
 	

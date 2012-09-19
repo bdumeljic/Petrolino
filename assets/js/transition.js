@@ -87,7 +87,6 @@ function Transition(x, y) {
 				this.beingClicked = true;
 				var cP = Drawboard.canvas.getLayer(l.name + '_centerPoint');
 				cP.visible = false;
-				
 			},
 			mouseup: function(l) {
 				var cP = Drawboard.canvas.getLayer(l.name + '_centerPoint');
@@ -104,8 +103,10 @@ function Transition(x, y) {
 			},
 			click: function(l) {
 			},
-			drag: function() {
+			drag: function(l) {
 				this.beingClicked = false;
+				var cP = Drawboard.canvas.getLayer(l.name + '_centerPoint');
+				cP.visible = false;
 				delegate.tooltip.hideToolTip();
 			}
 		});
