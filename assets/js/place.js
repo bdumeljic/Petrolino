@@ -10,10 +10,14 @@ function Place(x, y) {
 			y = 150;
 		}
 		
-		this.type = "place";
+		this.type = 'place';
 		
 		// Generate unique id
-		this.id = "pl" + Drawboard.places.length;
+		this.id = 'pl' + Drawboard.places.length;
+		this.name = 'Place ' + Drawboard.places.length;
+		
+		// Set description
+		this.description = "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
 		
 		
 		// Build ToolTip
@@ -128,6 +132,28 @@ function Place(x, y) {
 		
 		return Drawboard.canvas.getLayer(id);
 	};
+	
+	this.toPNML = function() {
+		res  = '<place id="' + this.id + '">\n';
+		
+		res += '	<name>\n';
+		res += '		<text>' + this.name + '</text>\n';
+		res += '	</name>\n';
+		
+		res += '	<description>\n';
+		res += '		<text>' + this.description + '</text>\n';
+		res += '	</description>\n';
+		
+		res += '	<graphics>\n';
+		res += '		<position x="' + this.actor.x + '" y="' + this.actor.y + '" />\n';
+		res += '		<dimension x="' + this.actor.radius + '" y="' + this.actor.radius + '" />\n';
+		res += '	</graphics>\n';
+		
+		res += '</place>\n';
+		
+		return res;
+	}
+
 	
 	this.init();
 }

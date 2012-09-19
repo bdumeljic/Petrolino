@@ -43,6 +43,29 @@ var Drawboard = {
 		console.log("Drawboard initialized");
 	},
 	
+	toPNML: function() {
+	
+		// General PNML
+		res  = '﻿<?xml version="1.0" encoding="utf-8"?>\n';
+		res += '<pnml>\n';
+		res += '	<net id="n1" type="http://www.pnml.org/version-2009/grammar/ptnet">\n';
+		
+		// Generate transitions
+		$.each(this.transitions, function() {
+			res += this.toPNML();
+		});
+		
+		// Generate places
+		$.each(this.places, function() {
+			res += this.toPNML();
+		});
+		
+		res += '	</net>\n';
+		res += '</pnml>\n';
+		
+		return res;
+	},
+	
 	hideToolTips: function() {
 		$.each(this.places.concat(this.transitions), function() {
 			this.hideToolTip();

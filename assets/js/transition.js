@@ -12,12 +12,16 @@ function Transition(x, y) {
 		
 		this.type = "transition";
 		
-		// Generate unique id
-		this.id = "tr" + Drawboard.transitions.length;
+		// Generate unique id and name
+		this.id = 'tr' + Drawboard.transitions.length;
+		this.name = 'Transition ' + Drawboard.transitions.length;
+		
+		// Set description
+		this.description = "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
 		
 		
 		// Build ToolTip
-		this.toolTip = $('<div class="popover right"><div class="arrow"></div><h3 class="popover-title">' + this.id + '</h3><div class="popover-content"><p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p></div></div>');
+		this.toolTip = $('<div class="popover right"><div class="arrow"></div><h3 class="popover-title">' + this.name + '</h3><div class="popover-content"><p>' + this.description + '</p></div></div>');
 		
 		this.toolTip.css('position', 'absolute');
 		this.toolTip.css('display', 'none');
@@ -148,6 +152,27 @@ function Transition(x, y) {
 		
 		return Drawboard.canvas.getLayer(id);
 	};
+	
+	this.toPNML = function() {
+		res  = '<transition id="' + this.id + '">\n';
+		
+		res += '	<name>\n';
+		res += '		<text>' + this.name + '</text>\n';
+		res += '	</name>\n';
+		
+		res += '	<description>\n';
+		res += '		<text>' + this.description + '</text>\n';
+		res += '	</description>\n';
+		
+		res += '	<graphics>\n';
+		res += '		<position x="' + this.actor.x + '" y="' + this.actor.y + '" />\n';
+		res += '		<dimension x="' + this.actor.width + '" y="' + this.actor.height + '" />\n';
+		res += '	</graphics>\n';
+		
+		res += '</transition>\n';
+		
+		return res;
+	}
 
 	this.init();
 }
