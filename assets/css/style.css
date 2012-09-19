@@ -21,7 +21,7 @@ canvas#board {
 .inspector {
 	z-index:2;
 	position: relative;
-	
+	/*
 	float:right;
 	left:0;
 	top:0;
@@ -29,6 +29,7 @@ canvas#board {
 	height:400px;
 	background: rgba(0, 0, 0, 0.1);
 	border: 1px solid #999;
+	*/
 }
 .inspector_intro_title {
 	font-size:30px;

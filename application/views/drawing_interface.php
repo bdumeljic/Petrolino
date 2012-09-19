@@ -9,56 +9,26 @@
 	
 	<canvas id="board" width="700" height="500"></canvas>
 
-	<div class="inspector" >
+	<div class="inspector well pull-right" >
 	
-		<div id="inspector_intro" style="display:block">
-			<div class="inspector_intro_header">
-				<div class="brand inspector_intro_title"><center>Petrolino<br/><br/>Get Started!</center></div>
-			</div>
-			
-			<div class="inspector_intro_content" >
-				
-				<div>
-					<center><u>Start a new Project</u></center>
-					<div style="margin-top:10px;">
-						<center>
-							<input type="text" name="name" placeholder="Name"/><br>
-							<button type="submit" id="startbutton" class="btn btn-primary pull-right" style="width:100%;">Start</button>
-						</center>
-					</div>
-				</div>
-				
-				<div style="margin-top:40px">
-					<center>Or<br><u>Upload a PNML</u></center>
-					<div style="margin-top:10px;">
-						<center>
-							
-							<button type="submit" id="uploadbutton" class="btn btn-primary pull-right" style="width:100%;">Upload</button>
-						</center>
-					</div>
-				</div>
-				
-				<div style="clear:both"></div>
-			</div>
+		<div id="inspector_intro" style="display:block; text-align: center;">
+			<h1>Petrolino</h1>
+			<fieldset>
+				<input type="text" name="name" placeholder="Name"/><br>
+				<button type="submit" id="startbutton" class="btn btn-primary btn-block">Start</button>
+			</fieldset>
+			<p><br/>Or</p>
+			<button type="submit" id="uploadbutton" class="btn btn-block">Upload a PNML file</button>
 		</div>
 		
-		<div id="inspector_project" style="display:none">
-			<div class="inspector_intro_header">
-				<div class="brand inspector_project_title">Petrolino - Inspector</div>
-			</div>
+		<div id="inspector_project" style="display:none; text-align: center;">
+			<h1>Petrolino</h1>
 			
-			<div class="inspector_intro_content">
-				
-				<div>
-					Description
-					<textarea style="width:94%;" rows="7"></textarea>
-				</div>
-				<div style="bottom:0px;">
-					<button type="submit" class="btn btn-primary pull-right" style="width:100%">Download PNML file</button><br><br>
-					<button type="submit" class="btn btn-primary pull-right" style="width:100%">Convert to Arduino code</button>
-				</div>
-			</div>
-			<div style="clear:both"></div>
+			Description
+			<textarea style="width:94%;" rows="7"></textarea>
+			<button type="submit" class="btn btn-block">Download PNML file</button><br><br>
+			<button type="submit" class="btn btn-block btn-primary">Convert to Arduino code</button>
+					
 		</div>
 		
 		<!--
