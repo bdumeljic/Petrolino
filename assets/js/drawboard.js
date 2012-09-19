@@ -2,7 +2,9 @@ $(document).ready(function() {
 	Drawboard.init();
 })
 
-// Main class
+// Drawboard
+// This class works as the main class
+// and represents the canvas
 var Drawboard = {
 	
 	// Array of all place objects
@@ -18,55 +20,33 @@ var Drawboard = {
 	canvas: null,
 	
 	
-	// Initialize
+	// Initialize the board
 	init: function() {
+		
 		this.canvas = $("canvas#board");
 		
-		//fullscreen canvas
+		// Set canvas to fullscreen
 		this.canvas.attr("width",  $(document).width());
 		this.canvas.attr("height",  $(document).height());
 		
-		
+		// Initialize the board's event listeners
 		this.events.init();
 		console.log("Drawboard initialized");
 	},
 	
-	addPlace: function(placeObject) {
-		console.log("Adding placeObject");
-		this.places.push(placeObject);
-	},
-	
+	// Remove place from array
 	removePlace: function(placeObject) {
 	 objectPosition = this.places.indexOx(placeObject);
 	 this.places.splice(objectPosition,1);
 	},
 	
-	getPlaces: function() {
-		return this.places;
-	},
-	
-	addTransition: function(transitionObject) {
-		console.log("Adding transitionObject");
-		this.transitions.push(transitionObject);
-	},
-	
-	getTransitions: function() {
-		return this.transitions;
-	},
-	
+	// Remove transition from array
 	removeTransition: function(transitionObject) {
 	 objectPosition = this.places.indexOx(transitionObject);
 	 this.transitions.splice(objectPosition,1);
 	},
 	
-	addAction: function(actionObject) {
-	
-	},
-	
-	getActions: function() {
-		return this.actions;
-	},
-	
+	// Remove action from array
 	removeAction: function(actionObject) {
 	 objectPosition = this.places.indexOx(actionObject);
 	 this.actions.splice(objectPosition,1);
@@ -76,34 +56,29 @@ var Drawboard = {
 
 }
 
+// Drawboard.events
+// This class holds all the event listeners for the drawboard
 Drawboard.events = {
 
 	init: function() {
 		console.log("Drawboard.events initialized");
-		$("#createPlace").click( function() { Drawboard.layout.addPlace(); });
+		$("#createPlace").click( function() {
+			var pl = new Place();
+			Drawboard.places.push(pl);
+		});
 		
 		$("#createTransition").click( function() { 
 			var tr = new Transition();
 			Drawboard.transitions.push(tr);
 		});
+		
+		$("#createAction").click( function() { 
+			var ac = new Action();
+			Drawboard.actions.push(ac);
+		});
 	}
 }
 
 Drawboard.layout = {
-	addPlace: function() {
-		console.log("Drawboard.layout Place added");
-		var placeObject = new place();
-		placeObject.draw();
-		
-		Drawboard.addPlace(placeObject);
-		console.log("Drawboard.layout Total places: "+Drawboard.getPlaces().length);
-	},
-	addTransition: function() {
-		console.log("Drawboard.layout Transition added");
-		var transitionObject = new transition();
-		transitionObject.draw();
-		
-		Drawboard.addTransition(transitionObject);
-		console.log("Drawboard.layout Total transition: "+Drawboard.getTransitions().length);
-	}
+	
 }
