@@ -7,14 +7,18 @@ var Main = {
 	
 	convertToArduino: function() {
 		var pnml = Drawboard.toPNML();
+		var res;
 		
 		$.ajax({
 			type: "POST",
 			url: "/comm/convert",
-			data: { pnml: pnml }
+			data: { pnml: pnml },
+			async: false
 		}).done(function(msg) {
-			console.log(msg);
+			res = msg;
 		});
+		
+		return res;
 	}
 
 }
