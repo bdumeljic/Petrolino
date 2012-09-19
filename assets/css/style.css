@@ -12,6 +12,9 @@ canvas#board {
 /*	width:80%;*/
 /*	float:left;*/
 }
+.modal {
+	z-index: 1000;
+}
 .active {
 	background-color: #ff0;
 	border-color: #f00;

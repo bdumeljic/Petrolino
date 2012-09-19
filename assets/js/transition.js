@@ -3,7 +3,7 @@ function Transition(x, y) {
 	this.init = function() {
 		// Set x and y defaults
 		if(!x) {
-			x = 150;
+			x = 350;
 		}
 
 		if(!y) {
