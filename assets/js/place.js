@@ -10,6 +10,8 @@ function Place(x, y) {
 			y = 150;
 		}
 		
+		this.type = "place";
+		
 		// Generate unique id
 		this.id = "pl" + Drawboard.places.length;
 		
@@ -48,7 +50,6 @@ function Place(x, y) {
 	this.hideToolTip = function() {
 		this.toolTip.hide();
 	}
-
 	
 	this.draw = function(id, x, y, delegate) {
 		Drawboard.canvas.drawArc({
@@ -66,19 +67,32 @@ function Place(x, y) {
 			layer: true,
 			draggable: true,
 		
-			mouseover: function() {
+			mouseover: function(l) {
 				$(this).css({cursor: "pointer"});
+				var cP = Drawboard.canvas.getLayer(l.name + '_centerPoint');
+				cP.x = l.x;
+				cP.y = l.y;
+				cP.visible = true;
 			},
-			mouseout: function() {
-				$(this).css({cursor: "default"});  
+			mouseout: function(l) {
+				$(this).css({cursor: "default"}); 
+				if(!Drawboard.isDrawing) {
+					var cP = Drawboard.canvas.getLayer(l.name + '_centerPoint');
+					cP.x = l.x;
+					cP.y = l.y;
+					cP.visible = false; 
+				}
 			},
 			mousedown: function() {
 				this.beingClicked = true;
 			},
-			mouseup: function() {
+			mouseup: function(l) {
 				if(this.beingClicked) {
 					delegate.toggleToolTip();	
 				}
+				var cP = Drawboard.canvas.getLayer(l.name + '_centerPoint');
+				cP.x = l.x;
+				cP.y = l.y;
 			},
 			click: function(e) {
 				$(this).addClass("active");				
@@ -87,6 +101,22 @@ function Place(x, y) {
 				this.beingClicked = false;
 				delegate.hideToolTip();
 			}
+		});
+		
+		Drawboard.canvas.drawArc({
+			fillStyle: "#f00",
+			x: x, y: y,
+			radius: 5,
+			name: id + '_centerPoint',
+			
+			layer: true,
+			bringToFront: true,
+			mousedown: function(l) {
+				console.log("start drawing line " + delegate.actor);
+				Drawboard.isDrawing = true;
+				Drawboard.startObject = delegate;
+				l.visible = true;
+			},
 		});
 		
 		return Drawboard.canvas.getLayer(id);

@@ -44,8 +44,9 @@ var Drawboard = {
 	
 	_updateLines: function() {
 		if(Drawboard.isDrawing == true) {
+			
 			//create and/or update existing dragging line
-			var sO = Drawboard.startObject;
+			var sO = Drawboard.startObject.actor;
 			var l = Drawboard.canvas.getLayer("dragLine");
 			
 			if(!l) {
@@ -100,11 +101,17 @@ var Drawboard = {
 		Drawboard.isDrawing = false;
 		if(Drawboard.startObject) {
 			//add place when there is no hittest with a target
-			var pl = new Place(Drawboard.startObject.mouseX,Drawboard.startObject.mouseY);
-			Drawboard.places.push(pl);
+			if(Drawboard.startObject.type == 'place') {
+				var tr = new Transition(Drawboard.startObject.mouseX,Drawboard.startObject.mouseY);
+				Drawboard.transitions.push(tr);
+				var targetObject = tr.actor;
+			} else {
+				var pl = new Place(Drawboard.startObject.mouseX,Drawboard.startObject.mouseY);
+				Drawboard.places.push(pl);
+				var targetObject = pl.actor;
+			}
 			
 			//connect source and target
-			var targetObject = pl.actor;
 			var ac = new Action(Drawboard.startObject, targetObject);
 			Drawboard.actions.push(ac);
 			
