@@ -120,8 +120,10 @@ function Emitter(x, y) {
 			},
 			click: function(l) {
 			},
-			drag: function() {
+			drag: function(l) {
 				this.beingClicked = false;
+				var cP = Drawboard.canvas.getLayer(l.name + '_centerPoint');
+				cP.visible = false;
 				delegate.hideToolTip();
 			}
 		});

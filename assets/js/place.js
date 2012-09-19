@@ -101,7 +101,7 @@ function Place(x, y) {
 			click: function(e) {
 				$(this).addClass("active");				
 			},
-			drag: function() {
+			drag: function(l) {
 				this.beingClicked = false;
 				var cP = Drawboard.canvas.getLayer(l.name + '_centerPoint');
 				cP.visible = false;
