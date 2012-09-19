@@ -29,7 +29,20 @@ function Action (source, target) {
 			layer: true,
 			bringToFront: true,
 			name: "line" + id,
-		});
+
+            mouseover: function(l) {
+                $(this).css({cursor: "pointer"});
+            },
+            mouseout: function(l) {
+                $(this).css({cursor: "default"});
+            },
+            mouseup: function(l) {
+                if(this.beingClicked) {
+                    delegate.tooltip.update();
+                    delegate.tooltip.toggleToolTip();
+                }
+            }
+        });
 		return Drawboard.canvas.getLayer("line" + id);
 		
 	};
