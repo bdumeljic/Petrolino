@@ -26,7 +26,7 @@ function Tooltip(delegate) {
 	
 	// Toggle tooltip
 	this.showToolTip = function() {
-		//Drawboard.hideToolTips();
+		Drawboard.hideToolTips();
 		this.layout.css({top: this.getY(), left: this.getX()});
 		this.layout.show();
 	}
@@ -37,12 +37,15 @@ function Tooltip(delegate) {
 	}
 	
 	this.toggleToolTip = function() {
-		
+		if($(this.layout).is(":hidden"))
+			this.showToolTip();
+		else
+			this.hideToolTip();
 	}
 	
 	// Update tooltip
 	this.update = function() {
-		
+		console.log("Update");
 		// Update variables
 		this.name = delegate.name;
 		this.description = delegate.description;
