@@ -33,6 +33,9 @@
 		</div>
 		<hr>
 		<p><small>Petrolino is a Web-based Graphical Editor meant to create, export and convert petri-nets. <a href="<?=site_url('/welcome/help/');?>">Learn more &gt;</a></small></p>
+		<hr>
+		<p><small>Version 0.0.1 (<a href="https://github.com/bdumeljic/Petrolino">github</a>)</small></p>
+		
 	</div>
 
 	<canvas id="board" width="700" height="500"></canvas>
