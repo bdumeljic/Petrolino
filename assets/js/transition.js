@@ -17,7 +17,7 @@ function Transition(x, y) {
 		this.name = 'Transition ' + Drawboard.transitions.length;
 		
 		// Set description
-		this.description = "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+		this.description = "";//"Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
 		
 		this.tooltip = new Tooltip(this);
 		// Draw the actor
