@@ -21,20 +21,10 @@
 	<script src="<?= base_url('assets/js/place.js') ?>"></script>
 	<script src="<?= base_url('assets/js/transition.js') ?>"></script>
 	<script src="<?= base_url('assets/js/action.js') ?>"></script>
+	<script src="<?= base_url('assets/js/inspector.js') ?>"></script>
 	<!-- <script src="<?= base_url('assets/js/main.js') ?>"></script> -->
 	
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<a class="brand" href="<?=site_url("welcome/");?>">Petrolino</a>
-				<ul class="nav">
-					<li><a href="#">Upload</a></li>
-					<li><a href="<?=site_url("welcome/help/");?>">Help</a></li>
-				</ul>
-				 <button type="submit" class="btn btn-primary pull-right">Compile Arduino code</button>
-			</div>
-		</div>
-	</div>
+    
 	<div class="container">
