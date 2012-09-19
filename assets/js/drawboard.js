@@ -130,9 +130,7 @@ var Drawboard = {
 					var targetObject = null;
 				}
 				
-			}
-			
-			if(!targetObject) {
+			} else {
 				//add place when there is no hittest with a target
 				if(Drawboard.startObject.type == 'place') {
 					var tr = new Transition(sourceObject.actor.mouseX,sourceObject.actor.mouseY);
@@ -145,10 +143,11 @@ var Drawboard = {
 				}
 			}
 			
-			//connect source and target
-			var ac = new Action(sourceObject, targetObject);
-			Drawboard.actions.push(ac);
-			
+			if(targetObject && sourceObject) {
+				//connect source and target
+				var ac = new Action(sourceObject, targetObject);
+				Drawboard.actions.push(ac);
+			}
 			Drawboard.startObject.hideCentralPoint();
 			Drawboard.startObject = null;
 			//_updateLines();
