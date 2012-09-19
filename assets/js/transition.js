@@ -121,7 +121,7 @@ function Transition(x, y) {
 			mousedown: function(l) {
 				console.log("start drawing line");
 				Drawboard.isDrawing = true;
-				Drawboard.startObject = l;
+				Drawboard.startObject = delegate;
 				l.visible = true;
 			},
 			

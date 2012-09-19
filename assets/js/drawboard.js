@@ -102,17 +102,17 @@ var Drawboard = {
 		if(Drawboard.startObject) {
 			//add place when there is no hittest with a target
 			if(Drawboard.startObject.type == 'place') {
-				var tr = new Transition(Drawboard.startObject.mouseX,Drawboard.startObject.mouseY);
+				var tr = new Transition(Drawboard.startObject.actor.mouseX,Drawboard.startObject.actor.mouseY);
 				Drawboard.transitions.push(tr);
 				var targetObject = tr.actor;
 			} else {
-				var pl = new Place(Drawboard.startObject.mouseX,Drawboard.startObject.mouseY);
+				var pl = new Place(Drawboard.startObject.actor.mouseX,Drawboard.startObject.actor.mouseY);
 				Drawboard.places.push(pl);
 				var targetObject = pl.actor;
 			}
 			
 			//connect source and target
-			var ac = new Action(Drawboard.startObject, targetObject);
+			var ac = new Action(Drawboard.startObject.actor, targetObject);
 			Drawboard.actions.push(ac);
 			
 			Drawboard.startObject.visible = false;
