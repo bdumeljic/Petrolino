@@ -1,6 +1,7 @@
 body {
 	padding: 20px;
 }
+
 canvas#board {
 	background-color: #e8e8e8;
 	position: absolute;
@@ -9,49 +10,14 @@ canvas#board {
 }
 .btn-group {
 	z-index: 2;
-/*	width:80%;*/
-/*	float:left;*/
-}
-.modal {
-	z-index: 1000;
 }
 .active {
 	background-color: #ff0;
 	border-color: #f00;
 }
 
-
 .inspector {
 	z-index:2;
 	position: relative;
 	width: 250px;
-	/*
-	float:right;
-	left:0;
-	top:0;
-	width:20%;
-	height:400px;
-	background: rgba(0, 0, 0, 0.1);
-	border: 1px solid #999;
-	*/
-}
-.inspector_intro_title {
-	font-size:30px;
-	margin-left:auto;
-	margin-right:auto;
-	margin-top:10px;
-}
-.inspector_project_title {
-	font-size:20px;
-	margin-top:10px;
-}
-.inspector_intro_content{
-	vertical-align:middle;
-	margin-top:20px;
-	position:absolute;
-	height:100%;
-}
-
-.modal_body {
-    -webkit-overflow-scrolling: touch;
 }
