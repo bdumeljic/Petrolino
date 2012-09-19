@@ -4,7 +4,7 @@ function dump(a) {
 	$.each(a, function(index, value) {
 	    acc.push(index + ': ' + value);
 	});
-	return (JSON.stringify(acc));
+	alert(JSON.stringify(acc));
 }
 
 function createTransition() {
