@@ -22,6 +22,6 @@ canvas#board {
 	width: 250px;
 }
 
-#codeModal textarea {
+textarea.code-area {
 	font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
 }

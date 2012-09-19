@@ -53,6 +53,12 @@ var Drawboard = {
 		res += '<pnml>\n';
 		res += '	<net id="n1" type="http://www.pnml.org/version-2009/grammar/ptnet">\n';
 		
+		res += '		<description>\n';
+		res += '			<text>\n';
+		res += 					$('#globals-area').val();
+		res += '			</text>\n';
+		res += '		</description>\n';
+		
 		res += this.emitter.toPNML();
 		
 		// Generate transitions

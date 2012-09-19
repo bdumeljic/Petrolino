@@ -5,7 +5,7 @@
 			<h3 id="myModalLabel">C / Arduino Code</h3>
 		</div>
 		<div class="modal-body">
-			<textarea class="span5" rows="18"></textarea>
+			<textarea class="span5 code-area" readonly="readonly" rows="18"></textarea>
 		</div>
 		<div class="modal-footer">
 			<div class="alert alert-info">
@@ -25,7 +25,7 @@
 		<div class="row-fluid">
 			<fieldset>
 				<input type="text" name="name" placeholder="Name" class="span12"/><br>
-				<textarea rows="7" placeholder="Scope code" class="span12"></textarea>
+				<textarea id="globals-area" rows="7" placeholder="Globals" class="span12 code-area"></textarea>
             	<button type="submit" id="convertbutton" class="btn btn-block btn-primary" data-toggle="modal" data-target="#codeModal">Convert to Arduino code</button>
 				<button type="submit" class="btn btn-block disabled">Download PNML file</button>
 				<button type="submit" id="uploadbutton" class="btn btn-block disabled">Upload a PNML file</button>
