@@ -65,8 +65,7 @@ function Tooltip(delegate) {
 		this.layout.html('<div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div>');
 		$(this.layout).find(".popover-title").html(this.name).bind("click", this.makeEditable);
 		$(this.layout).find(".popover-content:first").html(this.description).bind("click", this.makeEditable);
-		// $(this.layout).find(".popover-title").html(this.name).bind("click", this.makeEditable);
-		// $(this.layout).find(".popover-content:first").html(this.description).bind("click", this.makeEditable);
+
 		
 	}
 	
@@ -102,7 +101,6 @@ function Tooltip(delegate) {
 
 			// var name = toolTipCode;
 			var code_val = $('#toolTipCode:last').val();
-			alert(code_val);
 			if(code_val != 'Click to edit') {
 				refObj.delegate.description = code_val;//'<p>' + code + '</p>';
 			}
