@@ -1,4 +1,18 @@
 <?include_once('include/header.php');?>
+	<div class="modal hide" id="codeModal"  tabindex="1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">C / Arduino Code</h3>
+		</div>
+		<div class="modal-body">
+			<p>One fine body…</p>
+		</div>
+		<div class="modal-footer">
+			<div class="alert alert-info">
+				<strong>Tip!</strong> Copy the code above to your Arduino.
+			</div>
+		</div>
+	</div>
 
 	<div class="inspector well" >
 		<h1>Petrolino</h1>
@@ -16,21 +30,6 @@
 				<button type="submit" class="btn btn-block disabled">Download PNML file</button>
 				<button type="submit" id="uploadbutton" class="btn btn-block disabled">Upload a PNML file</button>
 			</fieldset>
-		</div>
-		
-		<div class="modal hide fade" id="codeModal"  tabindex="1" role="dialog" aria-labelledby="myModalLabel">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<h3 id="myModalLabel">C / Arduino Code</h3>
-			</div>
-			<div class="modal-body">
-				<p>One fine body…</p>
-			</div>
-			<div class="modal-footer">
-				<div class="alert alert-info">
-					<strong>Tip!</strong> Copy the code above to your Arduino.
-				</div>
-			</div>
 		</div>
 		<hr>
 		<p><small>Petrolino is a Web-based Graphical Editor meant to create, export and convert petri-nets. <a href="<?=site_url('/welcome/help/');?>">Learn more &gt;</a></small></p>
