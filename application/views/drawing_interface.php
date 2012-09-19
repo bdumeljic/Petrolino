@@ -1,25 +1,25 @@
 <?include_once('include/header.php');?>
 
-	
-	
-	<div class="btn-group">
-		<button class="btn" id="createTransition"><i class="icon-asterisk"></i> Add transition</button>
-		<button class="btn" id="createPlace"><i class="icon-map-marker"></i> Add place</button>
-	</div>
-	
-	<canvas id="board" width="700" height="500"></canvas>
-
-	<div class="inspector well pull-right" >
-	
-		<div id="inspector_intro" style="display:block; text-align: center;">
-			<h1>Petrolino</h1>
-			<fieldset>
-				<input type="text" name="name" placeholder="Name"/><br>
-				<button type="submit" id="startbutton" class="btn btn-primary btn-block">Start</button>
-			</fieldset>
-			<p><br/>Or</p>
-			<button type="submit" id="uploadbutton" class="btn btn-block">Upload a PNML file</button>
+	<div class="inspector well" >
+		<h1>Petrolino</h1>
+		<hr>
+		<div class="btn-group row-fluid">
+			<button class="btn" id="createTransition"><i class="icon-asterisk"></i> Add transition</button>
+			<button class="btn" id="createPlace"><i class="icon-map-marker"></i> Add place</button>
 		</div>
+		<hr>
+
+		<!-- <div id="inspector_intro" style="display:block; text-align: center;margin-top: 20px" class="row-fluid"> -->
+		<div class="row-fluid">
+			<fieldset>
+				<input type="text" name="name" placeholder="Name" class="span12"/><br>
+				<textarea rows="7" placeholder="Scope code" class="span12"></textarea>
+				<button type="submit" class="btn btn-block btn-primary">Convert to Arduino code</button>
+				<button type="submit" class="btn btn-block disabled">Download PNML file</button>
+				<button type="submit" id="uploadbutton" class="btn btn-block disabled">Upload a PNML file</button>
+			</fieldset>
+		</div>
+<<<<<<< HEAD
 		
 		<div id="inspector_project" style="display:none; text-align: center;">
 			<h1>Petrolino</h1>
@@ -62,8 +62,12 @@
 		
 		-->
 		
-	
-	
-		
+=======
+		<hr>
+		<p><small>Petrolino is a Web-based Graphical Editor meant to create, export and convert petri-nets. <a href="<?=site_url('/welcome/help/');?>">Learn more &gt;</a></small></p>
 	</div>
+	<canvas id="board" width="700" height="500"></canvas>
+>>>>>>> updated control panel
+	
+	
 <?include_once('include/footer.php');?>
