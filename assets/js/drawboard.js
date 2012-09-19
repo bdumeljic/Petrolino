@@ -37,6 +37,9 @@ var Drawboard = {
 		//add mousemove listerner
 		this.canvas.bind("mousemove", this._updateLines);
 		this.canvas.bind("mouseup", this._stopDrawing);
+		
+		//create Emitter
+		var tr = new Emitter();
 
 		// Initialize the board's event listeners
 		this.events.init();
@@ -119,9 +122,14 @@ var Drawboard = {
 			var sourceObject = Drawboard.startObject;
 			//check if target object is opposite
 			if(Drawboard.possibleTargetObject) {
-				if(Drawboard.startObject.type != Drawboard.possibleTargetObject.type) {
+				if(Drawboard.startObject.type != Drawboard.possibleTargetObject.type && Drawboard.possibleTargetObject.type != 'emitter') {
 					var targetObject = Drawboard.possibleTargetObject;
 				}
+				//unset target if emitter tries to connect with transition
+				if(Drawboard.startObject.type == 'emitter' && targetObject.type == 'transition') {
+					var targetObject = null;
+				}
+				
 			}
 			
 			if(!targetObject) {
