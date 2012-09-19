@@ -170,6 +170,12 @@ function Emitter(x, y) {
 		res += '		<dimension x="' + this.actor.width + '" y="' + this.actor.height + '" />\n';
 		res += '	</graphics>\n';
 		
+		res += '	<toolspecific tool="Yasper" version="1.2.4020.34351">\n';
+		res += '	    <emitor xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">\n';
+		res += '	    	<text>true</text>\n';
+		res += '	    </emitor>\n';
+		res += '	</toolspecific>\n';		
+		
 		res += '</transition>\n';
 		
 		return res;

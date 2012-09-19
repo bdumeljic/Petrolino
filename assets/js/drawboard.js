@@ -39,7 +39,7 @@ var Drawboard = {
 		this.canvas.bind("mouseup", this._stopDrawing);
 		
 		//create Emitter
-		var tr = new Emitter();
+		Drawboard.emitter = new Emitter();
 
 		// Initialize the board's event listeners
 		// this.events.init();
@@ -52,6 +52,8 @@ var Drawboard = {
 		res  = '﻿<?xml version="1.0" encoding="utf-8"?>\n';
 		res += '<pnml>\n';
 		res += '	<net id="n1" type="http://www.pnml.org/version-2009/grammar/ptnet">\n';
+		
+		res += this.emitter.toPNML();
 		
 		// Generate transitions
 		$.each(this.transitions, function() {
