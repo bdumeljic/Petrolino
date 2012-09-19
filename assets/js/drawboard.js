@@ -22,6 +22,11 @@ var Drawboard = {
 	init: function() {
 		this.canvas = $("canvas#board");
 		
+		//fullscreen canvas
+		this.canvas.attr("width",  $(document).width());
+		this.canvas.attr("height",  $(document).height());
+		
+		
 		this.events.init();
 		console.log("Drawboard initialized");
 	},

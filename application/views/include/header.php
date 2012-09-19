@@ -17,23 +17,20 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 	<script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
 	<script src="<?= base_url('assets/js/jcanvas.min.js') ?>"></script>
-	<!--<script src="<?= base_url('assets/js/petrolino.js') ?>"></script> -->
 	<script src="<?= base_url('assets/js/drawboard.js') ?>"></script>
 	<script src="<?= base_url('assets/js/place.js') ?>"></script>
 	<script src="<?= base_url('assets/js/transition.js') ?>"></script>
-	<script src="<?= base_url('assets/js/main.js') ?>"></script>
+	<!-- <script src="<?= base_url('assets/js/main.js') ?>"></script> -->
 	
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="brand" href="#">Petrolino</a>
+				<a class="brand" href="<?=site_url("welcome/");?>">Petrolino</a>
 				<ul class="nav">
-					<li><a href="<?=site_url("welcome/");?>">Home</a></li>
-					<li><a href="<?=site_url("welcome/draw/");?>">Draw</a></li>
 					<li><a href="#">Upload</a></li>
-					<li><a href="#">Help</a></li>
+					<li><a href="<?=site_url("welcome/help/");?>">Help</a></li>
 				</ul>
 				 <button type="submit" class="btn btn-primary pull-right">Compile Arduino code</button>
 			</div>

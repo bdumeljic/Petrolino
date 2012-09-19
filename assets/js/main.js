@@ -55,5 +55,3 @@ function Place() {
 		return actor.y();
 	}
 }
-
-

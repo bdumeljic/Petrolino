@@ -3,6 +3,12 @@ body {
 }
 canvas#board {
 	background-color: #e8e8e8;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.btn-group {
+	z-index: 2;
 }
 .active {
 	background-color: #ff0;
