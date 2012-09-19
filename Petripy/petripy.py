@@ -944,7 +944,9 @@ switch (pn1) {
     
 if __name__ == '__main__':
     #unittest.main()
-    projectName="blink-if-change-example"
+    import sys
+    
+    projectName = sys.argv[1]
     prog1 = PetriProg(projectName+".pnml")
     code=prog1.produceCode(fname=projectName+".c", debug=False, policy="Stochastic", statusReporting=0)
     print "Codesize = ",len(code)
