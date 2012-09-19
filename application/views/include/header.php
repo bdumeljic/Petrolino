@@ -17,7 +17,10 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 	<script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
 	<script src="<?= base_url('assets/js/jcanvas.min.js') ?>"></script>
-	<script src="<?= base_url('assets/js/petrolino.js') ?>"></script>
+	<!--<script src="<?= base_url('assets/js/petrolino.js') ?>"></script> -->
+	<script src="<?= base_url('assets/js/drawboard.js') ?>"></script>
+	<script src="<?= base_url('assets/js/place.js') ?>"></script>
+	<script src="<?= base_url('assets/js/transition.js') ?>"></script>
 	<script src="<?= base_url('assets/js/main.js') ?>"></script>
 	
 </head>
