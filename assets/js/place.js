@@ -113,7 +113,6 @@ function Place(x, y) {
 			layer: true,
 			bringToFront: true,
 			mousedown: function(l) {
-				console.log("start drawing line " + delegate.actor);
 				Drawboard.isDrawing = true;
 				Drawboard.startObject = delegate;
 				l.visible = true;

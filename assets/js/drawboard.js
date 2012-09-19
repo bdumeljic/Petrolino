@@ -49,8 +49,8 @@ var Drawboard = {
 	},
 	
 	_updateLines: function() {
+		//draw new line
 		if(Drawboard.isDrawing == true) {
-			
 			//create and/or update existing dragging line
 			var sO = Drawboard.startObject.actor;
 			var l = Drawboard.canvas.getLayer("dragLine");
@@ -71,34 +71,33 @@ var Drawboard = {
 				l.x2 = sO.mouseX;
 				l.y2 = sO.mouseY;
 				l.bringToFront = true;
+				l.visible = true;
 			}
 		}
-		//loop trhough actions and update connections
 		
+		
+		//loop trhough actions and update connections
+		var n = 0;
 		$.each(Drawboard.actions, function(index, value) {
-			// console.log("Update connection " + index);
+			Drawboard.actions[index].update();
+			/*
+			n++;
+			console.log("Update connection " + index);
 			var ac = value;
 			var s = value.source;
 			var t = value.target;
-			var l = Drawboard.canvas.getLayer("line" + index);
+			var l = Drawboard.canvas.getLayer("line" + n);
 			
 			if(!l)
 			{
-				Drawboard.canvas.drawLine({
-					strokeStyle: "#000",
-					strokeWidth: 2,
-					x1: s.x, y1: s.y,
-					x2: t.x, y2: t.y,
-					layer: true,
-					bringToFront: true,
-					name: "line" + index,
-				});
+				
 			} else {
 				l.x1 = s.x;
 				l.y1 = s.y;
 				l.x2 = t.x;
 				l.y2 = t.y;
 			}
+			*/
 		});
 		
 		
@@ -106,23 +105,30 @@ var Drawboard = {
 	_stopDrawing: function() {
 		Drawboard.isDrawing = false;
 		if(Drawboard.startObject) {
+			var sourceObject = Drawboard.startObject.actor;
+			
 			//add place when there is no hittest with a target
 			if(Drawboard.startObject.type == 'place') {
-				var tr = new Transition(Drawboard.startObject.actor.mouseX,Drawboard.startObject.actor.mouseY);
+				var tr = new Transition(sourceObject.mouseX,sourceObject.mouseY);
 				Drawboard.transitions.push(tr);
 				var targetObject = tr.actor;
 			} else {
-				var pl = new Place(Drawboard.startObject.actor.mouseX,Drawboard.startObject.actor.mouseY);
+				var pl = new Place(sourceObject.mouseX,sourceObject.mouseY);
 				Drawboard.places.push(pl);
 				var targetObject = pl.actor;
 			}
 			
 			//connect source and target
-			var ac = new Action(Drawboard.startObject.actor, targetObject);
+			// console.log("source: " + sourceObject.x);
+			// console.log("target: " + targetObject.x);
+			var ac = new Action(sourceObject, targetObject);
 			Drawboard.actions.push(ac);
 			
-			Drawboard.startObject.visible = false;
+			// Drawboard.startObject.actor.visible = false;
 			Drawboard.startObject = null;
+			//_updateLines();
+			var dL = Drawboard.canvas.getLayer("dragLine");
+			dL.visible = false;
 		}
 	},
 	addPlace: function(placeObject) {
