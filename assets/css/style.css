@@ -52,6 +52,6 @@ canvas#board {
 	height:100%;
 }
 
-.modal_tip {
-    text-align: left;
+.modal_body {
+    -webkit-overflow-scrolling: touch;
 }
