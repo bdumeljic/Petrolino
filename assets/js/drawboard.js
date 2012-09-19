@@ -81,7 +81,11 @@ Drawboard.events = {
 	init: function() {
 		console.log("Drawboard.events initialized");
 		$("#createPlace").click( function() { Drawboard.layout.addPlace(); });
-		$("#createTransition").click( function() { Drawboard.layout.addTransition(); });
+		
+		$("#createTransition").click( function() { 
+			var tr = new Transition();
+			Drawboard.transitions.push(tr);
+		});
 	}
 }
 

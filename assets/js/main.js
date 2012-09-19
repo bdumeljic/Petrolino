@@ -21,7 +21,7 @@ var Main = {
 
 }
 
-function Place() {
+/*function Place() {
 	
 	var id = "pl" + Main.places.length;
 
@@ -54,4 +54,4 @@ function Place() {
 	function y() {
 		return actor.y();
 	}
-}
+}*/
