@@ -22,6 +22,7 @@ var Drawboard = {
 	isDrawing: false,
 	
 	startObject: null,
+	possibleTargetObject: null,
 	
 	
 	// Initialize the board
@@ -77,27 +78,8 @@ var Drawboard = {
 		
 		
 		//loop trhough actions and update connections
-		var n = 0;
 		$.each(Drawboard.actions, function(index, value) {
 			Drawboard.actions[index].update();
-			/*
-			n++;
-			console.log("Update connection " + index);
-			var ac = value;
-			var s = value.source;
-			var t = value.target;
-			var l = Drawboard.canvas.getLayer("line" + n);
-			
-			if(!l)
-			{
-				
-			} else {
-				l.x1 = s.x;
-				l.y1 = s.y;
-				l.x2 = t.x;
-				l.y2 = t.y;
-			}
-			*/
 		});
 		
 		
@@ -106,21 +88,27 @@ var Drawboard = {
 		Drawboard.isDrawing = false;
 		if(Drawboard.startObject) {
 			var sourceObject = Drawboard.startObject.actor;
+			//check if target object is opposite
+			if(Drawboard.possibleTargetObject) {
+				if(Drawboard.startObject.type != Drawboard.possibleTargetObject.type) {
+					var targetObject = Drawboard.possibleTargetObject.actor;
+				}
+			}
 			
-			//add place when there is no hittest with a target
-			if(Drawboard.startObject.type == 'place') {
-				var tr = new Transition(sourceObject.mouseX,sourceObject.mouseY);
-				Drawboard.transitions.push(tr);
-				var targetObject = tr.actor;
-			} else {
-				var pl = new Place(sourceObject.mouseX,sourceObject.mouseY);
-				Drawboard.places.push(pl);
-				var targetObject = pl.actor;
+			if(!targetObject) {
+				//add place when there is no hittest with a target
+				if(Drawboard.startObject.type == 'place') {
+					var tr = new Transition(sourceObject.mouseX,sourceObject.mouseY);
+					Drawboard.transitions.push(tr);
+					var targetObject = tr.actor;
+				} else {
+					var pl = new Place(sourceObject.mouseX,sourceObject.mouseY);
+					Drawboard.places.push(pl);
+					var targetObject = pl.actor;
+				}
 			}
 			
 			//connect source and target
-			// console.log("source: " + sourceObject.x);
-			// console.log("target: " + targetObject.x);
 			var ac = new Action(sourceObject, targetObject);
 			Drawboard.actions.push(ac);
 			

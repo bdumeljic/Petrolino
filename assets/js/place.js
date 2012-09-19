@@ -74,6 +74,7 @@ function Place(x, y) {
 				cP.x = l.x;
 				cP.y = l.y;
 				cP.visible = true;
+				Drawboard.possibleTargetObject = delegate;
 			},
 			mouseout: function(l) {
 				$(this).css({cursor: "default"}); 
@@ -83,6 +84,7 @@ function Place(x, y) {
 					cP.y = l.y;
 					cP.visible = false; 
 				}
+				Drawboard.possibleTargetObject = null;
 			},
 			mousedown: function() {
 				this.beingClicked = true;

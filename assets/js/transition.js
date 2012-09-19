@@ -10,6 +10,8 @@ function Transition(x, y) {
 			y = 150;
 		}
 		
+		this.type = "transition";
+		
 		// Generate unique id
 		this.id = "tr" + Drawboard.transitions.length;
 		
@@ -79,6 +81,7 @@ function Transition(x, y) {
 				cP.x = l.x;
 				cP.y = l.y;
 				cP.visible = true;
+				Drawboard.possibleTargetObject = delegate;
 			},
 			mouseout: function(l) {
 				$(this).css({cursor: "default"});
@@ -88,6 +91,7 @@ function Transition(x, y) {
 					cP.y = l.y;
 					cP.visible = false; 
 				}
+				Drawboard.possibleTargetObject = null;
 			},
 			mousedown: function() {
 				this.beingClicked = true;
