@@ -5,10 +5,17 @@ class Comm extends CI_Controller {
 
 	// Converts pnml to c
 	public function convert()
-	{
+	{	
+		$pnml = $_POST['pnml'];
 		
+		$fileName = BASEPATH . "/../tmp/" . (md5(microtime() + rand()));
+		$fh = fopen($fileName, 'w+') or die("can't open file" . $fileName . ".pnml");
+		
+		fwrite($fh, $pnml);
+		
+		fclose($fh);
+		
+		echo nl2br(shell_exec("python " . BASEPATH . "/../assets/petripy/petripy.py " . $fileName . ' 2>&1'));	
 	}
-
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+	
+}
