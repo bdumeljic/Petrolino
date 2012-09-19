@@ -33,6 +33,31 @@
             </div>
         </div>
 
+		<div id="inspector_project" style="display:none; text-align: center;">
+			<h1>Petrolino</h1>
+			
+			Description
+			<textarea style="width:94%;" rows="7"></textarea>
+			<button type="submit" class="btn btn-block">Download PNML file</button><br>
+
+            <button type="submit" class="btn btn-block btn-primary" data-toggle="modal" data-target="#codeModal">Convert to Arduino code</button>
+
+            <div class="modal" id="codeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">C / Arduino Code</h3>
+                </div>
+                <div class="modal-body">
+                    <p>One fine body… that is not behaving properly ...</p>
+                </div>
+                <div class="modal-footer">
+                    <div class="alert alert-info">
+                        <strong>Tip!</strong> Copy the code above to your Arduino.
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                    </div>
+                </div>
+            </div>
+		</div>
 		
 		<!--
 		
@@ -54,7 +79,6 @@
 		<p><small>Petrolino is a Web-based Graphical Editor meant to create, export and convert petri-nets. <a href="<?=site_url('/welcome/help/');?>">Learn more &gt;</a></small></p>
 	</div>
 	<canvas id="board" width="700" height="500"></canvas>
->>>>>>> updated control panel
 	
 	
 <?include_once('include/footer.php');?>
