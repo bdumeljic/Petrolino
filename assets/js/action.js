@@ -11,7 +11,10 @@ function Action (source, target) {
 		// Set description
 		this.description = "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
 
-		// Draw the actor
+        // Add the tooltip
+        this.tooltip = new Tooltip(this);
+
+        // Draw the actor
 		this.actor = this.draw(this.id,this);
 	}
 	
@@ -41,6 +44,8 @@ function Action (source, target) {
                     delegate.tooltip.update();
                     delegate.tooltip.toggleToolTip();
                 }
+            },
+            click: function(l) {
             }
         });
 		return Drawboard.canvas.getLayer("line" + id);
