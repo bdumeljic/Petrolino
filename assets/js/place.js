@@ -1,64 +1,57 @@
-function place () {
+function Place(x, y) {
 
-	this.name = "Place name";
-	this.description = "Description";
+	if(!x) {
+		x = 150;
+	}
 	
-	this.draw = function() {
-		var _isDrawing = false;
-		var _startX = 200;
-		var _startY = 200;
-		
+	if(!y) {
+		y = 150;
+	}
+	
+	this.init = function() {
+		this.draw(this.id, x, y);
+	}	
+	
+	this.id = "pl" + Drawboard.transitions.length;
+	
+	this.draw = function(id, x, y) {
 		Drawboard.canvas.drawArc({
+			name: name,
+		
 			strokeStyle: "#000",
 			fillStyle: "#c33",
-			strokeWidth: 1,
-			x: _startX, y: _startY,
-			radius: 50,
+			strokeWidth: 3,
+			cornerRadius: 5,
+		
+			x: x, 
+			y: y,
+			radius:50,	
+		
 			layer: true,
 			draggable: true,
-			mouseover: function(l) {
-				// console.log("Place mouseover");
+		
+			mouseover: function() {
 				$(this).css({cursor: "pointer"});
-				l.fillStyle = "#c66";
 			},
-			mouseout: function(l) {
+			mouseout: function() {
 				$(this).css({cursor: "default"});  
-				l.fillStyle = "#c33";
 			},
-			/*
-			mousedown: function(l) {
-				console.log("start drawing line");
-				_isDrawing = true;
-				_startX = l.x;
-				_startY = l.y;
-				// dx = layer.mouseX - layer.x;
-				    // dy = layer.mouseY - layer.y;
+			mousedown: function() {
+				console.log("Mouse down");
 			},
-			mousemove: function(l) {
-				if(_isDrawing) {
-					Drawboard.canvas.drawLine({
-					  strokeStyle: "#000",
-					  strokeWidth: 10,
-					  x1: _startX, y1: _startY,
-					  x2: l.mouseX, y2: l.mouseY,
-					});
-				}
-				
-				// console.log("update dragging line");
+			mouseup: function() {
+				console.log("Mouse up");
 			},
-			mouseup: function(l) {
-				console.log("stop drawing line");
-				_isDrawing = false;
-			},
-			*/
-			click: function(l) {
-				console.log("Place Clicked");
-				// alert(l.x);
+			click: function(e) {
+				$(this).addClass("active");  		
 			},
 			drag: function() {
-				//console.log("Place dragged");
-			},
+				console.log("Drag");
+			}
 		});
-		console.log("Place drew");
+		
+		console.log("Transition drawn");
 	};
+	
+	this.init();
 }
