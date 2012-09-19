@@ -104,7 +104,7 @@ var Drawboard = {
 			Drawboard.places.push(pl);
 			
 			//connect source and target
-			var targetObject = pl.getLayer();
+			var targetObject = pl.actor;
 			var ac = new Action(Drawboard.startObject, targetObject);
 			Drawboard.actions.push(ac);
 			
