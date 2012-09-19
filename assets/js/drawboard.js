@@ -17,6 +17,10 @@ var Drawboard = {
 	// Canvas
 	canvas: null,
 	
+	isDrawing: false,
+	
+	startObject: null,
+	
 	
 	// Initialize
 	init: function() {
@@ -26,11 +30,49 @@ var Drawboard = {
 		this.canvas.attr("width",  $(document).width());
 		this.canvas.attr("height",  $(document).height());
 		
+		//add mousemove listerner
+		this.canvas.bind("mousemove", this._updateLines);
+		this.canvas.bind("mouseup", this._stopDrawing);
+		
+		
 		
 		this.events.init();
 		console.log("Drawboard initialized");
 	},
 	
+	_updateLines: function() {
+		if(Drawboard.isDrawing == true) {
+			// console.log("Drawing " + Drawboard.isDrawing);
+			
+			var sO = Drawboard.startObject;
+			// var sO = Drawboard.startObj;
+			console.log("Drawing " + sO.mouseY);
+			var l = Drawboard.canvas.getLayer("dragLine");
+			
+			if(!l) {
+				Drawboard.canvas.drawLine({
+					strokeStyle: "#000",
+					strokeWidth: 10,
+					x1: sO.x, y1: sO.y,
+					x2: sO.mouseX, y2: sO.mouseY,
+					layer: true,
+					brinToFront: true,
+					name: "dragLine",
+				});
+			} else {
+				l.x1 = sO.x;
+				l.y1 = sO.y;
+				l.x2 = sO.mouseX;
+				l.y2 = sO.mouseY;
+			}
+			// alert('line');
+		}
+		// alert('move');
+	},
+	_stopDrawing: function() {
+		Drawboard.isDrawing = false;
+		Drawboard.startObject = null;
+	},
 	addPlace: function(placeObject) {
 		console.log("Adding placeObject");
 		this.places.push(placeObject);
