@@ -65,7 +65,7 @@
 		<hr>
 		<p>Petrolino is a Web-based Graphical Editor meant to create, export and convert petri-nets. <a data-toggle="modal" href="#aboutModal">Learn more &gt;</a></p>
 		<hr>
-		<p><small>Version 0.0.1 (<a href="https://github.com/bdumeljic/Petrolino">github</a>)</small></p>
+		<p><small>Version 0.0.2 (<a href="https://github.com/bdumeljic/Petrolino">github</a>)</small></p>
 		
 	</div>
 
