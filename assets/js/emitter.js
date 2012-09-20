@@ -139,29 +139,18 @@ function Emitter(x, y) {
 	};
 	
 	this.toPNML = function() {
-		res  = '<transition id="' + this.id + '">\n';
-		
-		res += '	<name>\n';
-		res += '		<text>' + this.name + '</text>\n';
-		res += '	</name>\n';
-		
-		res += '	<description>\n';
-		res += '		<text>' + this.description + '</text>\n';
-		res += '	</description>\n';
-		
-		res += '	<graphics>\n';
-		res += '		<position x="' + this.actor.x + '" y="' + this.actor.y + '" />\n';
-		res += '		<dimension x="' + this.actor.width + '" y="' + this.actor.height + '" />\n';
-		res += '	</graphics>\n';
-		
-		res += '	<toolspecific tool="Yasper" version="1.2.4020.34351">\n';
-		res += '	    <emitor xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec">\n';
-		res += '	    	<text>true</text>\n';
-		res += '	    </emitor>\n';
-		res += '	</toolspecific>\n';		
-		
-		res += '</transition>\n';
-		
+		var res = '<transition id="' + this.id + '">\n';
+	    res += '	  <name>\n';
+	    res += '	    <text>Bootstrap</text>\n';
+	    res += '	  </name>\n';
+	    res += '	  <description>\n';
+	    res += '	    <text>' + this.description + '</text>\n';
+	    res += '	  </description>\n';
+	    res += '	  <graphics>\n';
+	    res += '	    <position x="' + this.actor.x + '" y="' + this.actor.y + '" />\n';
+	    res += '	    <dimension x="' + this.actor.width + '" y="' + this.actor.height + '" />\n';
+	    res += '	  </graphics>\n';
+	    res += '	</transition>\n';
 		return res;
 	}
 

@@ -51,8 +51,9 @@ var Drawboard = {
 		// General PNML
 		res  = '﻿<?xml version="1.0" encoding="utf-8"?>\n';
 		res += '<pnml>\n';
-		res += '	<net id="n1" type="http://www.pnml.org/version-2009/grammar/ptnet">\n';
-		
+		// res += '	<net id="n1" type="http://www.pnml.org/version-2009/grammar/ptnet">\n';
+		res += '	<net type="http://www.yasper.org/specs/epnml-1.1" id="do32">\n';
+	  
 		res += '		<description>\n';
 		res += '			<text>\n';
 		res += 					$('#globals-area').val();

@@ -3,7 +3,7 @@ body {
 }
 
 canvas#board {
-	background: url('/assets/img/texture.png') #ccc;
+	background: url('../img/texture.png') #ccc;
 	position: absolute;
 	top: 0;
 	left: 0;
