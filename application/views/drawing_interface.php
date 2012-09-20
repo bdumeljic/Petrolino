@@ -38,7 +38,7 @@
 				<li>Convert PNML to C-code
 			</ul>
 
-			<p><small>Brought to you by: Joost, Pieter, Bojana and Thomas.</small></p>
+			<p><small>Brought to you by: Joost, Pieter, Bojana and Thomas.<br>Supervised by Walter "8.5" Aprile</small></p>
 		</div>
 		<div class="modal-footer">
 			<p><small>Powered by CodeIgniter, Bootstrap and Petripy.</small></p>
