@@ -19,6 +19,16 @@ var Main = {
 		});
 		
 		return res;
+	},
+	
+	downloadPNML: function() {
+		var pnml = Drawboard.toPNML();
+		
+		//window.location = "index.php/comm/createPNML/"+pnml;
+	 	$.post("index.php/comm/createPNML",{pnml:pnml},
+ 		function(msg){
+ 				window.location = "index.php/comm/downloadPNML";
+ 		});
 	}
 
 }

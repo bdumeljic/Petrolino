@@ -17,7 +17,7 @@ Inspector.events = {
 		});
 		
 		$("#downloadbutton").click(function() {
-			console.log("Inspector.events Dowload button clicked")
+			Main.downloadPNML();
 		});
 		
 		$("#convertbutton").click(function() {

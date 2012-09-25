@@ -58,7 +58,7 @@
 				<input type="text" name="name" placeholder="Name" class="span12"/><br>
 				<textarea id="globals-area" rows="7" placeholder="Globals" class="span12 code-area"></textarea>
             	<button type="submit" id="convertbutton" class="btn btn-block btn-primary" data-toggle="modal" data-target="#codeModal">Convert to Arduino code</button>
-				<button type="submit" class="btn btn-block disabled">Download PNML file</button>
+				<button type="submit" id="downloadbutton" class="btn btn-block ">Download PNML file</button>
 				<button type="submit" id="uploadbutton" class="btn btn-block disabled">Upload a PNML file</button>
 			</fieldset>
 		</div>
