@@ -17,7 +17,7 @@ function Emitter(x, y) {
 		this.name = 'Emitter';
 		
 		// Set description
-		this.description = "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+		this.description = "";//Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
 		
 		this.tooltip = new Tooltip(this);
 		
@@ -108,7 +108,7 @@ function Emitter(x, y) {
 				this.beingClicked = false;
 				var cP = Drawboard.canvas.getLayer(l.name + '_centerPoint');
 				cP.visible = false;
-				delegate.hideToolTip();
+			//	delegate.hideToolTip();
 			}
 		});
 		

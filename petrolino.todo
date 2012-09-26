@@ -1,0 +1,14 @@
+version 0.1:
+- delete button for places/etc
+- arrow direction
+- bezier direction
+- test generated C-code
+✓ setup code
+
+version 0.2:
+- upload pnml to c
+- default 'click to edit' text different for actions/places/transitions
+	- do places need a code field?
+- color code
+- actions better clickable
+- show title under palces/transition

@@ -9,7 +9,7 @@ function Action (source, target) {
 		this.name = 'Action ' + Drawboard.actions.length;
 		
 		// Set description
-		this.description = "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+		this.description = "";//Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
 
         // Add the tooltip
         this.tooltip = new Tooltip(this);
@@ -18,7 +18,18 @@ function Action (source, target) {
 		this.actor = this.draw(this.id,this);
 	}
 	
+	this.getX = function() {
+		var x = this.actor.mouseX;//x1+(this.actor.x2/2);
+		console.log('x=' + x)
+		return x;
+		
+	}
 	
+	this.getY = function() {
+		var y = this.actor.mouseY;//+(this.actor.y2/2);;
+		console.log('y=' + y)
+		return y;
+	}
 	
 	this.draw = function(id, delegate) {
 		var s = delegate.source.actor;
@@ -26,7 +37,7 @@ function Action (source, target) {
 		
 		Drawboard.canvas.drawBezier({
 			strokeStyle: "#000",
-			strokeWidth: 2,
+			strokeWidth: 3,
 			
 			x1: s.x, y1: s.y,
 			cx1: s.x + 50, cy1: s.y,
@@ -49,6 +60,7 @@ function Action (source, target) {
                 Drawboard.possibleTargetObject = null;
             },
             mouseup: function(l) {
+				console.log("action: " + this.beingClicked);
                 if(this.beingClicked) {
                     delegate.tooltip.update();
                     delegate.tooltip.toggleToolTip();

@@ -11,7 +11,6 @@ function Tooltip(delegate) {
 	
 	// Parent object
 	this.delegate = delegate;
-
 	// Template
 	this.layout = $('<div class="popover bottom"><div class="arrow"></div><h3 class="popover-title">' + this.name + '</h3><div class="popover-content"><p>' + this.description + '</p></div></div>');
 	
