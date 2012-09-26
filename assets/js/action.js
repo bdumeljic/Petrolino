@@ -5,8 +5,9 @@ function Action (source, target) {
 		this.target = t;
 
 		// Generate unique id
-		this.id = 'a' + Drawboard.actions.length;
-		this.name = 'Action ' + Drawboard.actions.length;
+		this.id = 'a' + Drawboard.actionCounter++;//actions.length;
+		this.name = 'Action ' + Drawboard.actionCounter;//actions.length;
+		this.type = 'action';
 		
 		// Set description
 		this.description = "";//Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
@@ -107,6 +108,12 @@ function Action (source, target) {
 		res += '</arc>\n';
 		
 		return res;
+	}
+	
+	this.breakDown = function() {
+		console.log("remove line: " + this.id)
+		Drawboard.canvas.removeLayer("line" + this.id);
+		Drawboard.canvas.drawLayers();
 	}
 	
 	this.init(source, target);

@@ -1,18 +1,11 @@
-function dump(a) {
-	var acc = []
-	$.each(a, function(index, value) {
-	    acc.push(index + ': ' + value);
-	});
-	alert(JSON.stringify(acc));
-}
-
 function Tooltip(delegate) {
 	var refObj = this;
 	
 	// Parent object
 	this.delegate = delegate;
 	// Template
-	this.layout = $('<div class="popover bottom"><div class="arrow"></div><h3 class="popover-title">' + this.name + '</h3><div class="popover-content"><p>' + this.description + '</p></div></div>');
+	// this.layout = $('<div class="popover bottom"><div class="arrow"></div><h3 class="popover-title">' + this.name + '</h3><div class="popover-content"><p>' + this.description + '</p><button class="btn" type="button">Default button</button></div></div>');
+	this.layout = $('<div class="popover bottom"></div>');
 	
 	// CSS
 	this.layout.css('position', 'absolute');
@@ -57,13 +50,17 @@ function Tooltip(delegate) {
 		this.description = delegate.description;
 		
 		if(this.description == '') {
-			 this.description = 'Click to edit';
+			this.description = 'Click to edit';//'<button class="btn" type="button">Default button</button>';
 		}
+		// this.description = '<p class="row-fluid">' + this.description + '</p><div class="btn-group row-fluid"><button class="btn" id="edit">Edit</button><button class="btn" id="del">Delete</button></div>';
 		
 		// Update layout
-		this.layout.html('<div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div>');
+		this.layout.html('<div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div><div class="popover-content"><div class="btn-group row-fluid"><button class="btn" id="edit">Edit</button><button class="btn" id="del">Delete</button></div></div>');
+		// this.layout = $('<div class="popover bottom"><div class="arrow"></div><h3 class="popover-title">' + this.name + '</h3><div class="popover-content"><p>' + this.description + '</p></div></div>');
 		$(this.layout).find(".popover-title").html(this.name).bind("click", this.makeEditable);
 		$(this.layout).find(".popover-content:first").html(this.description).bind("click", this.makeEditable);
+		$(this.layout).find(".popover-content #edit").bind("click", this.makeEditable);
+		$(this.layout).find(".popover-content #del").bind("click", this.removeDelegate);
 
 		
 	}
@@ -111,5 +108,9 @@ function Tooltip(delegate) {
 	this.update = function() {
 		console.log("Update");
 		this.showLayout();
+	}
+	this.removeDelegate = function() {
+		refObj.hideToolTip();
+		Drawboard.removeObj(refObj.delegate);
 	}
 }

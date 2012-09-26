@@ -13,8 +13,8 @@ function Place(x, y) {
 		this.type = 'place';
 		
 		// Generate unique id
-		this.id = 'pl' + Drawboard.places.length;
-		this.name = 'Place ' + Drawboard.places.length;
+		this.id = 'pl' + Drawboard.placeCounter++;//places.length;
+		this.name = 'Place ' + Drawboard.placeCounter;//places.length;
 		
 		// Set description
 		this.description = "";//"Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
@@ -150,6 +150,12 @@ function Place(x, y) {
 		res += '</place>\n';
 		
 		return res;
+	}
+	
+	this.breakDown = function() {
+		Drawboard.canvas.removeLayer(this.id);
+		Drawboard.canvas.removeLayer(this.id + '_centerPoint');
+		Drawboard.canvas.drawLayers();
 	}
 
 	

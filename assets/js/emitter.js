@@ -14,7 +14,7 @@ function Emitter(x, y) {
 		
 		// Generate unique id and name
 		this.id = 'em1';
-		this.name = 'Emitter';
+		this.name = 'Bootstrap';
 		
 		// Set description
 		this.description = "";//Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."

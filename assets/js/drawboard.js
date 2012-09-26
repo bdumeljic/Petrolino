@@ -16,6 +16,10 @@ var Drawboard = {
 	// Array of all action objects
 	actions: [],
 	
+	placeCounter: 0,
+	transitionCounter: 0,
+	actionCounter: 0,
+	
 	// Canvas
 	canvas: null,
 	
@@ -185,25 +189,70 @@ var Drawboard = {
 		this.places.push(placeObject);
 	},
 	
-
+	//remove connected actions
+	removeConnections: function(refObject) {
+		// var rem = [];
+		// var col = Math.floor(Math.random()*16777215).toString(16);
+		$.each(this.actions, function(index, value) {
+			if (value != undefined) {
+				// value.actor.strokeStyle = '#'+col;
+				var s = value.source;
+				var t = value.target;
+				if(s == refObject) {
+					// rem.push(value);
+					Drawboard.removeAction(value);
+				} else if(t == refObject) {
+					// rem.push(value);
+					Drawboard.removeAction(value);
+				}
+				if(s == undefined || t == undefined) {
+					// rem.push(value);
+					Drawboard.removeAction(value);
+				}
+				value.update();
+			}
+		});
+	},
+	
+	
 	// Remove place from array
 	removePlace: function(placeObject) {
-	 objectPosition = this.places.indexOx(placeObject);
-	 this.places.splice(objectPosition,1);
+		this.removeConnections(placeObject);
+		placeObject.breakDown();
+		objectPosition = this.places.indexOf(placeObject);
+		this.places.splice(objectPosition,1);
 	},
 	
 	// Remove transition from array
 	removeTransition: function(transitionObject) {
-	 objectPosition = this.places.indexOx(transitionObject);
-	 this.transitions.splice(objectPosition,1);
+		this.removeConnections(transitionObject);
+		transitionObject.breakDown();
+		objectPosition = this.places.indexOf(transitionObject);
+		this.transitions.splice(objectPosition,1);
 	},
 	
 	// Remove action from array
 	removeAction: function(actionObject) {
-	 objectPosition = this.places.indexOx(actionObject);
-	 this.actions.splice(objectPosition,1);
+		actionObject.breakDown();
+		// actionObject = undefined;
+		objectPosition = this.places.indexOf(actionObject);
+		this.actions[objectPosition] = {};
+		// this.actions.splice(objectPosition,1);
 	},
-	
+	removeObj: function(removeObject) {
+		console.log("remove type: " + removeObject.type);
+		switch(removeObject.type) {
+			case "transition":
+				this.removeTransition(removeObject);
+				break;
+			case "place":
+				this.removePlace(removeObject);
+				break;
+			case "action":
+				this.removeAction(removeObject);
+				break;
+		}
+	}
 	
 
 }

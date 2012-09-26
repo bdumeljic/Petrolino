@@ -13,9 +13,10 @@ function Transition(x, y) {
 		this.type = "transition";
 		
 		// Generate unique id and name
-		this.id = 'tr' + Drawboard.transitions.length;
-		this.name = 'Transition ' + Drawboard.transitions.length;
+		this.id = 'tr' + Drawboard.transitionCounter++;//transitions.length;
+		this.name = 'Transition ' + Drawboard.transitionCounter;//transitions.length;
 		
+		// console.log(Drawboard.transitionCounter + " vs " + Drawboard.transitions.length);
 		// Set description
 		this.description = "";//"Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
 		
@@ -156,6 +157,12 @@ function Transition(x, y) {
 		res += '</transition>\n';
 		
 		return res;
+	}
+	
+	this.breakDown = function() {
+		Drawboard.canvas.removeLayer(this.id);
+		Drawboard.canvas.removeLayer(this.id + '_centerPoint');
+		Drawboard.canvas.drawLayers();
 	}
 
 	this.init();
